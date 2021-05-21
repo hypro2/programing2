@@ -9,8 +9,14 @@ public class ComputerPlayer extends CardPlayer {
 	}
 	public boolean wantsACard() {
 		boolean decision = false;
-		// 어떨때 받고 어떨때 안받는지 기준을 정해야된다.
-		
+		int r = 0;
+		Card[] c = super.showCards();
+		for(int i =0; i < c.length; i++) {
+			r += c[i].getRank();
+		}
+		if (r <= 10) {
+			decision = true;
+		}
 		return decision;
 
 	}

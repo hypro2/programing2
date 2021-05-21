@@ -11,7 +11,7 @@ public class Dealer {
 	}
 	
 	void dealTo(CardPlayerBehavior p) {
-		if (p.wantsACard()) {
+		while(p.wantsACard()) {
 			Card c = deck.newCard();
 			p.receiveCard(c);
 		}
@@ -24,7 +24,7 @@ public class Dealer {
 		HumanPlayer p = new HumanPlayer(11);
 		d.dealTo(p);
 		Card[] h = p.showCards();
-		for ( int i = 0; i<h.length;i++ ) {
+		for (int i = 0; i<h.length;i++ ) {
 			System.out.println(h[i].getSuit()+" "+h[i].getRank());
 			
 		}
