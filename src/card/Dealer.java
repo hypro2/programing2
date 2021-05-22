@@ -8,6 +8,7 @@ public class Dealer {
 	public Dealer() {
 		deck = new CardDeck();
 		//김형준 컴퓨터1
+		//김형준 컴퓨터2
 	}
 	
 	void dealTo(CardPlayerBehavior p) {
