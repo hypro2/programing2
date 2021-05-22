@@ -7,7 +7,7 @@ public class Dealer {
 	
 	public Dealer() {
 		deck = new CardDeck();
-		//김형준 컴퓨터1
+		//김형준 컴퓨터1 알았다
 		//김형준 컴퓨터2 10:45분 수정
 	}
 	
