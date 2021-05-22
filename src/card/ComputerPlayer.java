@@ -8,16 +8,16 @@ public class ComputerPlayer extends CardPlayer {
 		super(max_cards);
 	}
 	public boolean wantsACard() {
-		boolean decision = false;
+		boolean decision2 = false;
 		int r = 0;
 		Card[] c = super.showCards();
 		for(int i =0; i < c.length; i++) {
 			r += c[i].getRank();
 		}
 		if (r <= 10) {
-			decision = true;
+			decision2 = true;
 		}
-		return decision;
+		return decision2;
 
 	}
 }
