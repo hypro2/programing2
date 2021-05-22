@@ -7,7 +7,7 @@ public class Dealer {
 	
 	public Dealer() {
 		deck = new CardDeck();
-		
+		//김형준 컴퓨터1
 	}
 	
 	void dealTo(CardPlayerBehavior p) {
