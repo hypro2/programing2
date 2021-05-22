@@ -1,7 +1,7 @@
 package card;
 
 public class Card {
-	
+	//ÁÖ¼®´Þ±â 5:29ºÐ
 	public static final String SPADES = "spades";
 	public static final String HEARTS = "hearts";
 	public static final String DIAMONDS = "diamonds";
@@ -18,7 +18,7 @@ public class Card {
 	private int rank;
 
 	/** Constructor - CardÀÇ ¹«´Ì¿Í ²ý¼ö¸¦ ¼³Á¤ 
-	 * @param s - ¹«´Ì q
+	 * @param s - ¹«´Ì 
 	 * @param r - ²ý¼ö  */
 	public Card(String s, int r) { 
 		suit = s;
