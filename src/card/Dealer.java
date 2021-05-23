@@ -23,11 +23,11 @@ public class Dealer {
 		HumanPlayer p = new HumanPlayer(11);
 		ComputerPlayer c = new ComputerPlayer(11);
 		
-		System.out.println("-------사람-------");
+		System.out.println("----------사람----------");
 		d.dealTo(p);
-		System.out.println("------컴퓨터-------");
+		System.out.println("---------컴퓨터----------");
 		d.dealTo(c);
-		System.out.println("-------결과-------");
+		System.out.println("----------결과----------");
 	
 		//카드 패 오픈
 		Card[] h = p.showCards();
@@ -46,7 +46,7 @@ public class Dealer {
 		
 		
 		//승패 만들기
-		System.out.println("-------승/패-------");
+		System.out.println("----------승/패----------");
 
 	}
 	 
