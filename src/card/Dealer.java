@@ -13,16 +13,16 @@ public class Dealer {
 		while(p.wantsACard()) {
 			Card c = deck.newCard();
 			p.receiveCard(c);
+			//받은 카드 보이기
 			System.out.println("받은 카드 : "+c.getSuit()+" "+c.getRank());
 		}	
 	}
 
-	//테스트
+	//딜러 테스트
 	public static void main(String[] args){
 		Dealer d = new Dealer();
 		HumanPlayer p = new HumanPlayer(11);
 		ComputerPlayer c = new ComputerPlayer(11);
-		
 		System.out.println("----------사람----------");
 		d.dealTo(p);
 		System.out.println("---------컴퓨터----------");
@@ -35,17 +35,15 @@ public class Dealer {
 		int h_sumcard = 0;
 		int ch_sumcard = 0;
 		for (int i = 0; i<h.length;i++ ) {
-			h_sumcard += h[i].getRank();
-			}
+			h_sumcard += h[i].getRank();}
 		System.out.println("사람 카드 합 : "+h_sumcard);
 		
 		for (int j = 0; j<ch.length;j++ ) {
-			ch_sumcard += ch[j].getRank();
-			}
+			ch_sumcard += ch[j].getRank();}
 		System.out.println("컴퓨터 카드 합 : "+ch_sumcard);
 		
 		
-		//승패 만들기
+		//승패 아직 안 만듦 ㅋㅋ
 		System.out.println("----------승/패----------");
 
 	}
