@@ -7,28 +7,32 @@ public class Dealer {
 	
 	public Dealer() {
 		deck = new CardDeck();
-		//김형준 컴퓨터1 10:50 알았다
-		//김형준 컴퓨터2 10:45분 수정
 	}
 	
 	void dealTo(CardPlayerBehavior p) {
 		while(p.wantsACard()) {
 			Card c = deck.newCard();
 			p.receiveCard(c);
-		}
-		
-		
+		}	
 	}
-	
+
+	//테스트
 	public static void main(String[] args){
 		Dealer d = new Dealer();
 		HumanPlayer p = new HumanPlayer(11);
+		ComputerPlayer c = new ComputerPlayer(11);
 		d.dealTo(p);
+		d.dealTo(c);
 		Card[] h = p.showCards();
+		Card[] ch = c.showCards();
+		
 		for (int i = 0; i<h.length;i++ ) {
-			System.out.println(h[i].getSuit()+" "+h[i].getRank());
-			
-		}
+			System.out.println("사람 카드"+h[i].getSuit()+" "+h[i].getRank());
+			}	
+		for (int j = 0; j<ch.length;j++ ) {
+			System.out.println("컴퓨터 카드"+ch[j].getSuit()+" "+ch[j].getRank());	
+			}	
+		
 	}
 	 
 }
