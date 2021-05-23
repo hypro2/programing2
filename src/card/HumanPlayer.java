@@ -21,7 +21,7 @@ public class HumanPlayer extends CardPlayer {
 		
 		//21초과 버스트 출력하고 스탑
 		if(card_sum > 21) {
-			System.out.println( card_sum + " burst");
+			System.out.println( card_sum + " burst!!!!");
 			decision1 = false;}
 		
 		return decision1;
