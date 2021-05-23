@@ -27,10 +27,10 @@ public class Dealer {
 		Card[] ch = c.showCards();
 		
 		for (int i = 0; i<h.length;i++ ) {
-			System.out.println("사람 카드"+h[i].getSuit()+" "+h[i].getRank());
+			System.out.println("사람 "+(i+1)+"번째 카드 "+h[i].getSuit()+" "+h[i].getRank());
 			}	
 		for (int j = 0; j<ch.length;j++ ) {
-			System.out.println("컴퓨터 카드"+ch[j].getSuit()+" "+ch[j].getRank());	
+			System.out.println("컴퓨터 "+(j+1)+"번째 카드 "+ch[j].getSuit()+" "+ch[j].getRank());	
 			}	
 		
 	}
