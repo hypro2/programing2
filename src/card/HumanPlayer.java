@@ -18,7 +18,7 @@ public class HumanPlayer extends CardPlayer {
 		}
 		
 		if(card_sum > 21) {
-			System.out.println( card_sum + "burst");
+			System.out.println( card_sum + " burst");
 			decision1 = false;}
 		
 		return decision1;

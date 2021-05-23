@@ -24,7 +24,7 @@ public class ComputerPlayer extends CardPlayer {
 			decision2 = false;}
 		
 		if(card_sum > 21) {
-			System.out.println( card_sum + "burst");
+			System.out.println( card_sum + " burst");
 		}
 		
 		return decision2;
