@@ -5,15 +5,9 @@ public class ComputerPlayer extends CardPlayer {
 	public ComputerPlayer(int max_cards) {
 		super(max_cards);}
 	
-	int card_count = 0;
+
 	public boolean wantsACard() {
-		boolean decision2 = false;
-		
-		//카드 갯수
-		card_count+=1;
-		if (card_count <= 10) {
-			decision2 = true;
-		}
+		boolean decision2 = true;
 		
 		//카드 숫자 합
 		int card_sum = 0;
