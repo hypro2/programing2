@@ -20,10 +20,10 @@ public class ComputerPlayer extends CardPlayer {
 		if(card_sum > 16) {
 			decision2 = false;}
 		
-		//21초과 버스트 출력
-		if(card_sum > 21) {
-			System.out.println( card_sum + " burst!!!!");
-		}
+//		//21초과 버스트 출력
+//		if(card_sum >= 21) {
+//			System.out.println( card_sum + " burst!!!!");
+//		}
 		
 		return decision2;
 

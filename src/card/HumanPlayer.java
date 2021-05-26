@@ -20,8 +20,8 @@ public class HumanPlayer extends CardPlayer {
 			card_sum += c[i].getRank();}
 		
 		//21초과 버스트 출력하고 스탑
-		if(card_sum > 21) {
-			System.out.println( card_sum + " burst!!!!");
+		if(card_sum >= 21) {
+//			System.out.println( card_sum + " burst!!!!");
 			decision1 = false;}
 		
 		return decision1;

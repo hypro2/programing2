@@ -43,9 +43,28 @@ public class Dealer {
 		System.out.println("ÄÄÇ»ÅÍ Ä«µå ÇÕ : "+ch_sumcard);
 		
 		
-		//½ÂÆÐ ¾ÆÁ÷ ¾È ¸¸µê ¤»¤»
+		//½ÂÆÐ 
 		System.out.println("----------½Â/ÆÐ----------");
-
+		if (h_sumcard == 21 | h_sumcard > ch_sumcard & h_sumcard < 21 & ch_sumcard < 21) {
+			System.out.println("ÀÎ°£ ½Â");
+		}
+		else if (ch_sumcard ==21 | ch_sumcard > h_sumcard & h_sumcard < 21 & ch_sumcard < 21) {
+			System.out.println("ÄÄÇ»ÅÍ ½Â");
+		}
+		else if (ch_sumcard > 21 & h_sumcard < 21) {
+			System.out.println("ÄÄÇ»ÅÍÀÇ burst!!!!");
+			System.out.println("ÀÎ°£ ½Â");
+		}
+		else if (h_sumcard > 21 & ch_sumcard < 21) {
+			System.out.println("ÀÎ°£ÀÇ burst!!!!");
+			System.out.println("ÄÄÇ»ÅÍ ½Â");
+		}
+		else if(h_sumcard == ch_sumcard){
+			System.out.println("ºñ°å½À´Ï´Ù.");
+		}
+		else {
+			System.out.println("ºñ°å½À´Ï´Ù.");
+		}
 	}
 	 
 }
