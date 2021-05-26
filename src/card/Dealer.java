@@ -59,10 +59,7 @@ public class Dealer {
 			System.out.println("인간의 burst!!!!");
 			System.out.println("컴퓨터 승");
 		}
-		else if(h_sumcard == ch_sumcard){
-			System.out.println("비겼습니다.");
-		}
-		else {
+		else if(h_sumcard == ch_sumcard | h_sumcard > 21 & ch_sumcard > 21){
 			System.out.println("비겼습니다.");
 		}
 	}
