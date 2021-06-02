@@ -23,9 +23,9 @@ public class Frame extends JFrame implements ActionListener {
 		JPanel north = new JPanel(new FlowLayout());
 		north.add(label1);
 		north.add(label2);
-		
+		north.add(label3);
 		JPanel center = new JPanel(new FlowLayout());
-		center.add(label3);
+
 		
 		JPanel south = new JPanel(new FlowLayout());
 		south.add(new Button("결과 발표!", blackjack, this)); 
