@@ -4,11 +4,11 @@ public class Blackjack {
 	 
 	private int h_sumcard;
 	private int ch_sumcard;
-	String h_card="";
-	String ch_card="";
-	int HumanCardNum;
-	int ComCardNum;
-	String winner;
+	private String h_card="";
+	private String ch_card="";
+	private int HumanCardNum;
+	private int ComCardNum;
+	private String winner;
 	
 	public Blackjack(int card_num) {
 		 

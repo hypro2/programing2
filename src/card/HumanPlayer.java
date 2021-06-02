@@ -9,7 +9,7 @@ public class HumanPlayer extends CardPlayer {
 	}
 	public boolean wantsACard() {
 		//리턴 decision1로 변경
-		String response = "Y";
+		String response = JOptionPane.showInputDialog("한장 더 드릴까요? (Y/N)");
 		boolean decision1 = true;
 		
 		//카드 숫자 합
@@ -26,7 +26,6 @@ public class HumanPlayer extends CardPlayer {
 		else if(card_sum >= 21) {
 			decision1 = false;}
 		else
-			response = JOptionPane.showInputDialog("한장 더 드릴까요? (Y/N)");
 			decision1 = response.equals("Y") || response.equals("y");
 
 		return decision1;
