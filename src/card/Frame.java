@@ -9,12 +9,15 @@ import javax.swing.*;
 public class Frame extends JFrame implements ActionListener {
 	
 	private Blackjack blackjack;
+	private JPanel drawing;
 	private JLabel label1 =  new JLabel("인간의 카드?");
 	private JLabel label2 =  new JLabel("컴퓨터의 카드?");
 	private JLabel label3 =  new JLabel("승자는?");
 	
-	public Frame(Blackjack b){	
+	public Frame(Blackjack b,  JPanel panel){	
 		blackjack = b; 
+		drawing = panel;
+		
 		Container cp = getContentPane();
 		
 		JPanel north = new JPanel(new FlowLayout());
@@ -29,17 +32,17 @@ public class Frame extends JFrame implements ActionListener {
 		
 		cp.setLayout(new BorderLayout());
 		cp.add(north, BorderLayout.NORTH);
-		cp.add(center, BorderLayout.CENTER);
+		cp.add(drawing, BorderLayout.CENTER);
 		cp.add(south, BorderLayout.SOUTH);
 		
 		setTitle("Blackjack");
-		setSize(215,140);
+		setSize(500,200);
 		setVisible(true);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	}
 	public void update() {
-		label1.setText("인간 : "+blackjack.get_Human_sum());
-		label2.setText("컴퓨터 : "+blackjack.get_Com_sum()+"");
+		label1.setText("인간 합: "+blackjack.getHumanSum()+"");
+		label2.setText("컴퓨터 합: "+blackjack.getComSum()+"");
 		label3.setText(blackjack.winner());
 		repaint();
 	}
