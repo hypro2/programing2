@@ -12,12 +12,12 @@ public class MoreCardButton extends JButton implements ActionListener {
 	public MoreCardButton(String label, Blackjack m, Frame v) {
 		super(label);
 		model =m;
-		view = v;
+		view  =v;
 		addActionListener(this);
 	}
 		
 	public void actionPerformed(ActionEvent e) {
-		//model.increment();
-		//view.update();
+//		model.increment();
+//		view.update();
 	}
 }
