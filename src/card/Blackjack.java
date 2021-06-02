@@ -2,6 +2,10 @@ package card;
 
 public class Blackjack {
 	 
+	private int h_sumcard;
+	private int ch_sumcard;
+	String winner;
+	
 	public Blackjack(int card_num) {
 		 
 		Dealer d = new Dealer();
@@ -16,8 +20,8 @@ public class Blackjack {
 		//Ä«µå ÆÐ ¿ÀÇÂ
 		Card[] h = p.showCards();
 		Card[] ch = c.showCards();
-		int h_sumcard = 0;
-		int ch_sumcard = 0;
+		h_sumcard = 0;
+		ch_sumcard = 0;
 		for (int i = 0; i<h.length;i++ ) {
 			h_sumcard += h[i].getRank();}
 		System.out.println("»ç¶÷ Ä«µå ÇÕ : "+h_sumcard);
@@ -25,30 +29,38 @@ public class Blackjack {
 		for (int j = 0; j<ch.length;j++ ) {
 			ch_sumcard += ch[j].getRank();}
 		System.out.println("ÄÄÇ»ÅÍ Ä«µå ÇÕ : "+ch_sumcard);
-		
-		
+				
 		//½ÂÆÐ 
 		System.out.println("----------½Â/ÆÐ----------");
 		if (h_sumcard == 21 & h_sumcard != ch_sumcard | h_sumcard > ch_sumcard & h_sumcard < 21 & ch_sumcard < 21) {
-			System.out.println("ÀÎ°£ ½Â");
+			winner = "ÀÎ°£ ½Â";	
 		}
 		else if (ch_sumcard ==21  & h_sumcard != ch_sumcard | ch_sumcard > h_sumcard & h_sumcard < 21 & ch_sumcard < 21) {
-			System.out.println("ÄÄÇ»ÅÍ ½Â");
+			winner = "ÄÄÇ»ÅÍ ½Â";
 		}
 		else if (ch_sumcard > 21 & h_sumcard < 21) {
 			System.out.println("ÄÄÇ»ÅÍÀÇ burst!!!!");
-			System.out.println("ÀÎ°£ ½Â");
+			winner = "ÀÎ°£ ½Â";
 		}
 		else if (h_sumcard > 21 & ch_sumcard < 21) {
 			System.out.println("ÀÎ°£ÀÇ burst!!!!");
-			System.out.println("ÄÄÇ»ÅÍ ½Â");
+			winner = "ÄÄÇ»ÅÍ ½Â";
 		}
 		else{
-			System.out.println("ºñ°å½À´Ï´Ù.");
+			winner = "ºñ±è";
 		}
-		
+		System.out.println(winner);
 	}
 	
+	public int get_Human_sum() {
+		return h_sumcard;
+	}
+	public int get_Com_sum() {
+		return ch_sumcard;
+	}
+	public String winner() {
+		return winner;
+	}
 
 
 }
