@@ -7,16 +7,17 @@ import javax.swing.*;
 
 public class Frame extends JFrame implements ActionListener {
 	
+	private Blackjack blackjack;
 	private JLabel label =  new JLabel("");
 	
-	public Frame(){	
+	public Frame(Blackjack b){	
+		blackjack = b;
 		JPanel north = new JPanel(new FlowLayout());
 		north.add(label);
 		
 		JPanel south = new JPanel(new FlowLayout());
-		
-		south.add( new MoreCardButton("More Card");
-		south.add( new StopButton("Stop") );
+		south.add( new MoreCardButton("More Card", blackjack, this));
+		south.add( new StopButton("Stop", blackjack, this) );
 		
 		Container cp = getContentPane();
 		cp.setLayout(new BorderLayout());
@@ -37,4 +38,4 @@ public class Frame extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		
 	}
-	
+}	
