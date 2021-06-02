@@ -6,8 +6,6 @@ public class Blackjack {
 		 
 		Dealer d = new Dealer();
 		HumanPlayer p = new HumanPlayer(card_num);
-		
-		
 		ComputerPlayer c = new ComputerPlayer(card_num);
 		System.out.println("----------»ç¶÷----------");
 		d.dealTo(p);

@@ -17,9 +17,7 @@ public class Frame extends JFrame implements ActionListener {
 		north.add(label);
 		
 		JPanel south = new JPanel(new FlowLayout());
-//		south.add( new MoreCardButton("More Card", blackjack, this));
-//		south.add( new StopButton("Stop", blackjack, this) );
-		
+
 		Container cp = getContentPane();
 		cp.setLayout(new BorderLayout());
 		cp.add(north,BorderLayout.NORTH);

@@ -18,9 +18,10 @@ public class HumanPlayer extends CardPlayer {
 		for(int i = 0; i < c.length; i++) {
 			card_sum += c[i].getRank();}
 		
-		//첫번째 카드는 필수
+		//두번째 카드는 필수
 		if (c.length <=1) {
 			decision1 = true;}
+		
 		//21초과 버스트 출력하고 스탑
 		else if(card_sum >= 21) {
 			decision1 = false;}

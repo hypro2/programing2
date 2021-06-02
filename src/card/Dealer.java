@@ -15,7 +15,7 @@ public class Dealer {
 			p.receiveCard(c);
 			//받은 카드 보이기
 			System.out.println("받은 카드 : "+c.getSuit()+" "+c.getRank());
-		}	
+		}
 	}
 
 	 
