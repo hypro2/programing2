@@ -5,6 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+import fe.MoreCardButton;
+import fe.StopButton;
+
 public class Frame extends JFrame implements ActionListener {
 	
 	private Blackjack blackjack;
@@ -16,8 +19,8 @@ public class Frame extends JFrame implements ActionListener {
 		north.add(label);
 		
 		JPanel south = new JPanel(new FlowLayout());
-		south.add( new MoreCardButton("More Card", blackjack, this));
-		south.add( new StopButton("Stop", blackjack, this) );
+//		south.add( new MoreCardButton("More Card", blackjack, this));
+//		south.add( new StopButton("Stop", blackjack, this) );
 		
 		Container cp = getContentPane();
 		cp.setLayout(new BorderLayout());
