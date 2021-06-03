@@ -51,7 +51,7 @@ public class Blackjack {
 	public void hit(){
 		deck = new CardDeck();
 		c = deck.newCard(); 
-		if (h_sumcard<21) {
+		if (h_sumcard<21 & stophuman) {
 			h_sumcard = h_sumcard + c.getRank();
 			h_card =h_card+" "+c.getSuit()+" "+c.getRank();
 		}		
