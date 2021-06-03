@@ -7,12 +7,13 @@ public class Dealer {
 	private Card c;
 	
 	public Dealer() {
-		deck = new CardDeck();
-		 c = deck.newCard();
+
 	}
 	
 	void dealTo(CardPlayerBehavior p) {
 		while(p.wantsACard()) {
+			deck = new CardDeck();
+			c = deck.newCard();
 			p.receiveCard(c);
 			//받은 카드 보이기
 			System.out.println("받은 카드 : "+c.getSuit()+" "+c.getRank());
