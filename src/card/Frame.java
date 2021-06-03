@@ -28,6 +28,7 @@ public class Frame extends JFrame implements ActionListener {
 		JPanel south = new JPanel(new FlowLayout());
 		south.add(new MoreCardButton("Hit",blackjack,this));
 		south.add(new StopButton("Stop", blackjack, this)); 
+		south.add(new ExitButton("Exit")); 
 		
 		cp.setLayout(new BorderLayout());
 		cp.add(north, BorderLayout.NORTH);
@@ -35,7 +36,7 @@ public class Frame extends JFrame implements ActionListener {
 		cp.add(south, BorderLayout.SOUTH);
 		
 		setTitle("Blackjack");
-		setSize(500,200);
+		setSize(480,350);
 		setVisible(true);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	}
