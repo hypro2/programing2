@@ -22,6 +22,7 @@ public class Button extends JButton implements ActionListener {
 	
 	/** actionPerformed - '버튼 누르기' 액션 이벤트를 처리 
 	 * @param e - 이벤트 */
+	//딜러의 역할을 버튼으로 해야될...
 	public void actionPerformed(ActionEvent e) {
 		view.update();
 	}
