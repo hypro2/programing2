@@ -5,25 +5,28 @@ public class Dealer {
 	
 	private CardDeck deck;
 	private Card c;
+	private String card;
 	
 	public Dealer() {
 
 	}
-	
+	//컴퓨터 전용
 	void dealTo(CardPlayerBehavior p) {
 		while(p.wantsACard()) {
 			deck = new CardDeck();
 			c = deck.newCard();
 			p.receiveCard(c);
-			//받은 카드 보이기
-			System.out.println("받은 카드 : "+c.getSuit()+" "+c.getRank());
+			card = (c.getSuit()+" "+c.getRank());
 		}
 	}
 	
+	//1회용
 	void dealTo2(CardPlayerBehavior p) {
 		if(p.wantsACard()) {
+		deck = new CardDeck();
+		c = deck.newCard();
 		p.receiveCard(c);
-		System.out.println("받은 카드 : "+c.getSuit()+" "+c.getRank());
+		card = (c.getSuit()+" "+c.getRank());
 		}
 	}
 	}

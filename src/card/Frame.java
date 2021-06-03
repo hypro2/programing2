@@ -10,14 +10,14 @@ public class Frame extends JFrame implements ActionListener {
 	
 	private Blackjack blackjack;
 	private JPanel drawing;
-	private JLabel label1 =  new JLabel("인간의 카드?");
-	private JLabel label2 =  new JLabel("컴퓨터의 카드?");
+
+	private JLabel label1 =  new JLabel("인간의 카드? /");
+	private JLabel label2 =  new JLabel("컴퓨터의 카드? /");
 	private JLabel label3 =  new JLabel("승자는?");
 	
 	public Frame(Blackjack b,  JPanel panel){	
 		blackjack = b; 
 		drawing = panel;
-		
 		Container cp = getContentPane();
 		
 		JPanel north = new JPanel(new FlowLayout());
@@ -25,10 +25,9 @@ public class Frame extends JFrame implements ActionListener {
 		north.add(label2);
 		north.add(label3);
 		JPanel center = new JPanel(new FlowLayout());
-
-		
 		JPanel south = new JPanel(new FlowLayout());
-		south.add(new Button("결과 발표!", blackjack, this)); 
+		south.add(new MoreCardButton("Hit",blackjack,this));
+		south.add(new StopButton("Stop", blackjack, this)); 
 		
 		cp.setLayout(new BorderLayout());
 		cp.add(north, BorderLayout.NORTH);
@@ -41,9 +40,15 @@ public class Frame extends JFrame implements ActionListener {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	}
 	public void update() {
-		label1.setText("인간 합: "+blackjack.getHumanSum()+"");
-		label2.setText("컴퓨터 합: "+blackjack.getComSum()+"");
-		label3.setText(blackjack.winner());
+		label1.setText("인간의 카드 합 : "+blackjack.HumanSumCard()+" /");
+		
+		if (!blackjack.stop()) {
+			label2.setText("컴퓨터의 카드 합 : "+blackjack.ComSumCard()+" /");
+			label3.setText("승자 : "+ blackjack.winner());}
+		else {
+			label2.setText("컴퓨터의 카드 합 : 비밀 /");	
+			label3.setText("승자 : 비밀");
+		}
 		repaint();
 	}
 	

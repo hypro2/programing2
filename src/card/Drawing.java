@@ -13,12 +13,24 @@ public class Drawing extends JPanel {
 	}
 	
 	public void paintComponent(Graphics g) {
+		
 		g.setColor(Color.white);
 		g.fillRect(0, 0, 500, 200);
+		
 		g.setColor(Color.red);
-		g.drawString("인간의 카드는 : "+blackjack.HumanCard(),10,10);
+		if(blackjack.HumanCard() != null) {
+			g.drawString("인간 카드 : "+blackjack.HumanCard(),10,10);}
+		else {g.drawString("인간 드로우",10,10);}
+		
 		g.setColor(Color.blue);
-		g.drawString("컴퓨터의 카드 : "+blackjack.ComCard(),10,30);
+		if (!blackjack.stop()) {
+			if(blackjack.ComCard() != null) {
+				g.drawString("컴퓨터 카드 : "+blackjack.ComCard(),10,30);}
+			else {g.drawString("컴퓨터 드로우",10,30);}
+		}
+		else {
+			g.drawString("컴퓨터 카드 : 비밀",10,30);}
 		}
 	}
+
 
