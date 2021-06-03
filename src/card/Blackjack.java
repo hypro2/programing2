@@ -7,6 +7,7 @@ public class Blackjack {
 	private String h_card="";
 	private String ch_card="";
 	private String winner;
+	private Card[] h;
 	
 	public Blackjack(int card_num) {
 		 
@@ -18,23 +19,34 @@ public class Blackjack {
 		d.dealTo(c);
 
 		//Ä«µå ÆÐ ¿ÀÇÂ
-		Card[] h = p.showCards();
+		h = p.showCards();
 		Card[] ch = c.showCards();
 		
 		h_sumcard = 0;
 		ch_sumcard = 0;
+		
+
+		for (int j = 0; j<ch.length;j++ ) {
+			ch_sumcard += ch[j].getRank();
+			ch_card = ch_card + ch[j].getSuit()+" "+ch[j].getRank()+" ";
+			}
+	}
+	
+	public int getHumanSum() {
 		
 		for (int i = 0; i<h.length;i++ ) {
 			h_sumcard += h[i].getRank();
 			h_card = h_card + h[i].getSuit()+" "+h[i].getRank()+" ";
 			}
 		
-		for (int j = 0; j<ch.length;j++ ) {
-			ch_sumcard += ch[j].getRank();
-			ch_card = ch_card + ch[j].getSuit()+" "+ch[j].getRank()+" ";
-			}
-				
-		//½ÂÆÐ 
+		
+		return h_sumcard;
+	}
+	public int getComSum() {
+		return ch_sumcard;
+	}
+	public String winner() {
+		
 		if (h_sumcard == 21 & h_sumcard != ch_sumcard | h_sumcard > ch_sumcard & h_sumcard < 21 & ch_sumcard < 21) {
 			winner = "ÀÎ°£ ½Â";	
 		}
@@ -50,15 +62,6 @@ public class Blackjack {
 		else{
 			winner = "ºñ±è";
 		}
-	}
-	
-	public int getHumanSum() {
-		return h_sumcard;
-	}
-	public int getComSum() {
-		return ch_sumcard;
-	}
-	public String winner() {
 		return winner;
 	}
 	public String HumanCard() {
