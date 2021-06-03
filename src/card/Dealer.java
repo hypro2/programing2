@@ -4,14 +4,15 @@ public class Dealer {
 	
 	
 	private CardDeck deck;
+	private Card c;
 	
 	public Dealer() {
 		deck = new CardDeck();
+		 c = deck.newCard();
 	}
 	
 	void dealTo(CardPlayerBehavior p) {
 		while(p.wantsACard()) {
-			Card c = deck.newCard();
 			p.receiveCard(c);
 			//받은 카드 보이기
 			System.out.println("받은 카드 : "+c.getSuit()+" "+c.getRank());
@@ -19,9 +20,9 @@ public class Dealer {
 	}
 	
 	void dealTo2(CardPlayerBehavior p) {
-		Card c = deck.newCard();
+		if(p.wantsACard()) {
 		p.receiveCard(c);
 		System.out.println("받은 카드 : "+c.getSuit()+" "+c.getRank());
 		}
 	}
-
+	}
