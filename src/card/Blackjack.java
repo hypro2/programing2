@@ -6,8 +6,6 @@ public class Blackjack {
 	private int ch_sumcard;
 	private String h_card="";
 	private String ch_card="";
-	private int HumanCardNum;
-	private int ComCardNum;
 	private String winner;
 	
 	public Blackjack(int card_num) {
@@ -15,11 +13,8 @@ public class Blackjack {
 		Dealer d = new Dealer();
 		HumanPlayer p = new HumanPlayer(card_num);
 		ComputerPlayer c = new ComputerPlayer(card_num);
-		
-		System.out.println("----------사람----------");
+
 		d.dealTo(p);
-		
-		System.out.println("---------컴퓨터----------");
 		d.dealTo(c);
 
 		//카드 패 오픈
@@ -28,8 +23,6 @@ public class Blackjack {
 		
 		h_sumcard = 0;
 		ch_sumcard = 0;
-		HumanCardNum = h.length;
-		ComCardNum = ch.length;
 		
 		for (int i = 0; i<h.length;i++ ) {
 			h_sumcard += h[i].getRank();
@@ -74,10 +67,5 @@ public class Blackjack {
 	public String ComCard() {
 		return ch_card;
 	}
-	public int getHumanOf() {
-		return HumanCardNum;
-	}
-	public int getComOf() {
-		return ComCardNum;
-	}
+
 }
