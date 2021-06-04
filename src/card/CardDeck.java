@@ -45,13 +45,5 @@ public class CardDeck {
 	public boolean moreCards() { 
 		return card_count > 0; 
 	}
-	
-//	public static void main(String[] args) {
-//		CardDeck deck = new CardDeck();
-//		for (int i = 0; i < 5; i++) {
-//			Card card = deck.newCard();
-//			System.out.println(card.getSuit() + " " + card.getRank());
-//		}
-//	}
 
 }

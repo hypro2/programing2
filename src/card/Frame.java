@@ -24,11 +24,10 @@ public class Frame extends JFrame implements ActionListener {
 		north.add(label1);
 		north.add(label2);
 		north.add(label3);
-		JPanel center = new JPanel(new FlowLayout());
 		JPanel south = new JPanel(new FlowLayout());
 		south.add(new RestartButton("Restart",blackjack,this));
-		south.add(new MoreCardButton("Hit",blackjack,this));
-		south.add(new StopButton("Stop", blackjack, this)); 
+		south.add(new MoreCardButton("Hit!",blackjack,this));
+		south.add(new StopButton("Stop!", blackjack, this)); 
 		south.add(new ExitButton("Exit")); 
 		
 		cp.setLayout(new BorderLayout());
@@ -43,7 +42,6 @@ public class Frame extends JFrame implements ActionListener {
 	}
 	public void update() {
 		label1.setText("인간의 카드 합 : "+blackjack.HumanSumCard()+" /");
-		
 		if (!blackjack.stop()) {
 			label2.setText("컴퓨터의 카드 합 : "+blackjack.ComSumCard()+" /");
 			label3.setText("승자 : "+ blackjack.winner());}

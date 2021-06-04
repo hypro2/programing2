@@ -19,14 +19,4 @@ public class Dealer {
 			card = (c.getSuit()+" "+c.getRank());
 		}
 	}
-	
-	//1È¸¿ë
-	void dealTo2(CardPlayerBehavior p) {
-		if(p.wantsACard()) {
-		deck = new CardDeck();
-		c = deck.newCard();
-		p.receiveCard(c);
-		card = (c.getSuit()+" "+c.getRank());
-		}
-	}
-	}
+}
