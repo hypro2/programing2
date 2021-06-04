@@ -33,7 +33,8 @@ public class Drawing extends JPanel {
 			g.setColor(Color.orange);
 			Font font = g.getFont().deriveFont( 20.0f );
 		    g.setFont( font );
-			g.drawString("½ÂÀÚ: "+ blackjack.winner(), 150, 220);
+
+			g.drawString("½ÂÀÚ : "+ blackjack.winner(), 150, 220);
 			}
 		else {g.drawString("ºñ¹Ð",10,160);}
 		
