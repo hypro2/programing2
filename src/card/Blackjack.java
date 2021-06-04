@@ -1,5 +1,9 @@
 package card;
 
+import java.awt.*;
+import java.awt.List;
+import java.util.*;
+
 public class Blackjack {
 	 
 	private int h_sumcard;
@@ -11,6 +15,8 @@ public class Blackjack {
 	private String winner;
 	private Card[] h;
 	private Card[] ch;
+//	private ArrayList<String> hand;
+//	private ArrayList<String> chand;
 	private CardDeck deck;
 	private Card c;
 	private boolean stophuman;
@@ -29,6 +35,9 @@ public class Blackjack {
 		h = p.showCards();
 		ch = c.showCards();
 		
+//		ArrayList<String> hand = new ArrayList<String>();
+//		ArrayList<String> chand = new ArrayList<String>();
+		
 		//인간 카드
 		h_count=1;
 		h_sumcard=0;
@@ -37,9 +46,11 @@ public class Blackjack {
 			h_sumcard += h[i].getRank();
 			if (h[i].getRank()<10) {
 				h_card += h[i].getSuit()+" 0"+h[i].getRank()+" ";
+//				hand.add(h[i].getSuit()+" 0"+h[i].getRank());
 				}
 			else {
 				h_card += h[i].getSuit()+" "+h[i].getRank()+" ";
+//				hand.add(h[i].getSuit()+" "+h[i].getRank());
 				}
 			}
 		
@@ -49,14 +60,17 @@ public class Blackjack {
 		ch_card=" ";
 		for (int j = 0; j<ch.length;j++ ) {
 			ch_sumcard += ch[j].getRank();
+
 			if(ch[j].getRank()<10) {
 				ch_card = ch_card + ch[j].getSuit()+" 0"+ch[j].getRank()+"     ";
+//				chand.add(ch[j].getSuit()+" 0"+ch[j].getRank());
 				}
 			else {
 				ch_card = ch_card + ch[j].getSuit()+" "+ch[j].getRank()+"     ";
+//				chand.add(ch[j].getSuit()+" "+ch[j].getRank());
 				}
 			}
-		
+
 		//사람이 그만둘때 드로잉,프레임에 활용
 		stophuman = true;
 		}
@@ -67,16 +81,28 @@ public class Blackjack {
 		c = deck.newCard(); 
 		if (h_sumcard<21 & stophuman) {
 			h_sumcard = h_sumcard + c.getRank();
+
 			if(c.getRank()<10) {
 				h_card = h_card+"     "+c.getSuit()+" 0"+c.getRank();
+//				hand.add(c.getSuit()+" 0"+c.getRank());
 				}
 			else {
 				h_card = h_card+"     "+c.getSuit()+" "+c.getRank();
+//				hand.add(c.getSuit()+" "+c.getRank());
 				}
+			
 			h_count +=1;
 		}		
 	}
 	
+	//카드패 리턴
+	public ArrayList<String> hand() {
+		return hand;
+	}
+	public ArrayList<String> chand() {
+		return chand;
+	}
+		
 	//스톱버튼을 누르면 스톱휴먼이 펄스가됨
 	public void stophuman() {
 		stophuman = false;

@@ -1,7 +1,7 @@
 package card;
 
 public class Card {
-	//주석달기 5:39분♤ ♠ ♡ ♥ ♧ ♣
+	//♤ ♠ ♡ ♥ ♧ ♣
 	public static final String SPADES =   "♠";
 	public static final String HEARTS =   "♡";
 	public static final String DIAMONDS = "◇";
