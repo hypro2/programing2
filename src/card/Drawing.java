@@ -11,6 +11,7 @@ public class Drawing extends JPanel {
 	
 	private Blackjack blackjack;
 	private String[] list_hand = new String[11];
+	private String[] list_chand = new String[11];
 	
 	public Drawing(Blackjack b) {
 		blackjack = b;
@@ -25,7 +26,6 @@ public class Drawing extends JPanel {
 		
 		g.setColor(Color.red);
 		g.drawString("인간 카드",10,10);		
-		g.drawString(blackjack.HumanCard(),10,50);
 		
 		if ( blackjack.HumanSumCard() >21) {
 			g.drawString("인간의 Burst!!!!",10,100);}
@@ -33,20 +33,18 @@ public class Drawing extends JPanel {
 		int x = 0;
 		list_hand = blackjack.list_hand();
 		for (int i = 0; i <blackjack.h_count() ; i++) {
-//			g.drawString(list_hand[i], x*43+10, 110);
+			g.drawString(list_hand[i], x*43+10,50);
 			g.drawRect(x*43+3, 15, 41, 70);
 			x+=1;
 			}
 		
 		g.setColor(Color.blue);
 		g.drawString("컴퓨터 카드",10,120);
-		
-		if (!blackjack.stop()) {
-			
-			g.drawString(blackjack.ComCard(),10,160);
-			
+		list_chand = blackjack.list_chand();
+		if (!blackjack.stop()) {	
 			int y = 0;
 			for (int i = 0; i <blackjack.ch_count() ; i++) {
+				g.drawString(list_chand[i], y*43+11, 160);
 				g.drawRect(y*43+3, 125, 41, 70);
 				y+=1;
 				}

@@ -10,8 +10,6 @@ public class Blackjack {
 	private int ch_sumcard;
 	private int h_count;
 	private int ch_count;
-	private String h_card;
-	private String ch_card;
 	private String winner;
 	private Card[] h;
 	private Card[] ch;
@@ -38,55 +36,31 @@ public class Blackjack {
 		//인간 카드
 		h_count=1;
 		h_sumcard=0;
-		h_card="";
 		for (int i = 0; i<h.length;i++ ) {
 			h_sumcard += h[i].getRank();
-			if (h[i].getRank()<10) {
-				h_card += h[i].getSuit()+" 0"+h[i].getRank()+" ";
-				list_hand[i] = h[i].getSuit()+" 0"+h[i].getRank();
-				}
-			else {
-				h_card += h[i].getSuit()+" "+h[i].getRank()+" ";
-				list_hand[i] = h[i].getSuit()+" "+h[i].getRank();
-				}
+			list_hand[i] = h[i].getSuit()+" "+h[i].getRank();
 			}
 		
 		//컴퓨터 카드
 		ch_count=ch.length;
 		ch_sumcard = 0;
-		ch_card=" ";
 		for (int j = 0; j<ch.length;j++ ) {
 			ch_sumcard += ch[j].getRank();
-
-			if(ch[j].getRank()<10) {
-				ch_card = ch_card + ch[j].getSuit()+" 0"+ch[j].getRank()+"     ";
-
+			list_chand[j] = ch[j].getSuit()+" "+ch[j].getRank();
 				}
-			else {
-				ch_card = ch_card + ch[j].getSuit()+" "+ch[j].getRank()+"     ";
-				
-				}
-			}
+	
 		//사람이 그만둘때 드로잉,프레임에 활용
 		stophuman = true;	
-	}
+		}
+
 	
 	//인간 딜러 역할 한장씩 뽑아서 추가함
 	public void hit(){
 		deck = new CardDeck();
 		c = deck.newCard(); 		
 		if (h_sumcard<21 & stophuman) {
-			h_sumcard = h_sumcard + c.getRank();
-			if(c.getRank()<10) {
-				h_card = h_card+"     "+c.getSuit()+" 0"+c.getRank();
-				}
-			else {
-				h_card = h_card+"     "+c.getSuit()+" "+c.getRank();		
-				}
-			
-			list_hand[h_count()+1]=c.getSuit()+" "+c.getRank();
-			for (int i =0; i<=h_count()+1;i++) {
-			System.out.print(list_hand[i]+","+i+"/");}
+			h_sumcard = h_sumcard + c.getRank();		
+			list_hand[h_count()]=c.getSuit()+" "+c.getRank();
 			h_count +=1;
 		}		
 	}
@@ -118,12 +92,6 @@ public class Blackjack {
 	}
 	
 	// 카드패, 카드합 리턴
-	public String HumanCard() {
-		return h_card;
-	}
-	public String ComCard() {
-		return ch_card;
-	}
 	public int HumanSumCard() {
 		return h_sumcard;
 	}
