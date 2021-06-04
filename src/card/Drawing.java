@@ -30,7 +30,12 @@ public class Drawing extends JPanel {
 		//폭사 조건
 		if ( blackjack.HumanSumCard() >21) {
 			g.drawString("인간의 Burst!!!!",10,100);}
+		else if(blackjack.HumanSumCard()==21){
+			g.drawString("인간의 블랙잭!!!!",10,100);}
 		
+		if (blackjack.h_count()==0) {
+			g.drawString("Start!!",10,50);
+			}
 		//인간 카드그리기	
 		int x = 0;
 		list_hand = blackjack.list_hand();
@@ -54,9 +59,10 @@ public class Drawing extends JPanel {
 				y+=1;
 				}
 			//컴퓨터 폭사 조건
-			if ( blackjack.ComSumCard() >21) {
-				g.drawString("컴퓨터의 Burst!!!!",10,210);
-				}
+			if (blackjack.ComSumCard() >21) {
+				g.drawString("컴퓨터의 Burst!!!!",10,210);}
+			else if (blackjack.ComSumCard() == 21) {
+				g.drawString("컴퓨터의 블랙잭!!!!",10,210);}
 			
 			//승자 폰트
 			Font font = g.getFont().deriveFont( 20.0f );
