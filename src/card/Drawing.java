@@ -51,7 +51,11 @@ public class Drawing extends JPanel {
 		    	g.setColor(Color.blue);
 		    	}
 		    else if (blackjack.winner()=="ÀÎ°£ ½Â") {
-		    	g.setColor(Color.red);}
+		    	g.setColor(Color.red);
+		    	}
+		    else {
+		    	g.setColor(Color.orange);
+		    	}
 	    	g.drawString("½ÂÀÚ : "+ blackjack.winner(), 150, 240); 
 				}
 		else {
