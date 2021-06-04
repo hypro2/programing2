@@ -4,6 +4,8 @@ public class Blackjack {
 	 
 	private int h_sumcard;
 	private int ch_sumcard;
+	private int h_count;
+	private int ch_count;
 	private String h_card;
 	private String ch_card;
 	private String winner;
@@ -27,7 +29,8 @@ public class Blackjack {
 		h = p.showCards();
 		ch = c.showCards();
 		
-		//인간 카드 
+		//인간 카드
+		h_count=1;
 		h_sumcard=0;
 		h_card="";
 		for (int i = 0; i<h.length;i++ ) {
@@ -36,6 +39,7 @@ public class Blackjack {
 			}
 		
 		//컴퓨터 카드
+		ch_count=ch.length;
 		ch_sumcard = 0;
 		ch_card="";
 		for (int j = 0; j<ch.length;j++ ) {
@@ -53,7 +57,8 @@ public class Blackjack {
 		c = deck.newCard(); 
 		if (h_sumcard<21 & stophuman) {
 			h_sumcard = h_sumcard + c.getRank();
-			h_card =h_card+" "+c.getSuit()+" "+c.getRank();
+			h_card =h_card+"    "+c.getSuit()+" "+c.getRank();
+			h_count +=1;
 		}		
 	}
 	
@@ -65,6 +70,10 @@ public class Blackjack {
 	//스톱휴먼의 값을 리턴해줌
 	public boolean stop() {
 		return stophuman;
+	}
+	
+	public int h_count() {
+		return h_count;
 	}
 	
 	// 카드패, 카드합 리턴

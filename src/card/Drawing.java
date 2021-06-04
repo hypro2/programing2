@@ -23,6 +23,21 @@ public class Drawing extends JPanel {
 		if ( blackjack.HumanSumCard() >21) {
 			g.drawString("인간의 Burst!!!!",10,80);}
 		
+		//여기서 그만둠
+		g.setColor(Color.red);
+		int x = 0;
+		int y = 0;
+		for (int i = 0; i <blackjack.h_count() ; i++) {
+			g.drawRect(x*70+6, 15, 70, 70);
+			x+=1;
+			if(x > 7) {
+				x=0;
+				y+=1;
+			}
+		}
+		
+		
+		
 		g.setColor(Color.blue);
 		g.drawString("컴퓨터 카드",10,120);
 		if (!blackjack.stop()) {
