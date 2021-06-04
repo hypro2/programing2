@@ -35,16 +35,24 @@ public class Blackjack {
 		h_card="";
 		for (int i = 0; i<h.length;i++ ) {
 			h_sumcard += h[i].getRank();
-			h_card += h[i].getSuit()+" "+h[i].getRank()+" ";
+			if (h[i].getRank()<10) {
+				h_card += h[i].getSuit()+" 0"+h[i].getRank()+" ";}
+			else {
+				h_card += h[i].getSuit()+" "+h[i].getRank()+" ";
+			}
 			}
 		
 		//컴퓨터 카드
 		ch_count=ch.length;
 		ch_sumcard = 0;
-		ch_card="";
+		ch_card=" ";
 		for (int j = 0; j<ch.length;j++ ) {
 			ch_sumcard += ch[j].getRank();
-			ch_card = ch_card + ch[j].getSuit()+" "+ch[j].getRank()+" ";
+			if(ch[j].getRank()<10) {
+				ch_card = ch_card + ch[j].getSuit()+" 0"+ch[j].getRank()+"     ";
+			}
+			else {
+				ch_card = ch_card + ch[j].getSuit()+" "+ch[j].getRank()+"     ";}
 			}
 		
 		//사람이 그만둘때 드로잉,프레임에 활용
@@ -57,7 +65,11 @@ public class Blackjack {
 		c = deck.newCard(); 
 		if (h_sumcard<21 & stophuman) {
 			h_sumcard = h_sumcard + c.getRank();
-			h_card =h_card+"    "+c.getSuit()+" "+c.getRank();
+			if(c.getRank()<10) {
+				h_card = h_card+"     "+c.getSuit()+" 0"+c.getRank();}
+			else {
+				h_card = h_card+"     "+c.getSuit()+" "+c.getRank();
+			}
 			h_count +=1;
 		}		
 	}
@@ -74,6 +86,11 @@ public class Blackjack {
 	
 	public int h_count() {
 		return h_count;
+	}
+	
+
+	public int ch_count() {
+		return ch_count;
 	}
 	
 	// 카드패, 카드합 리턴
@@ -109,5 +126,6 @@ public class Blackjack {
 		}
 		return winner;
 	}
+
 
 }
