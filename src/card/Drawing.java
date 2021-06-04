@@ -10,6 +10,7 @@ import javax.swing.*;
 public class Drawing extends JPanel {
 	
 	private Blackjack blackjack;
+	private String[] list_hand = new String[11];
 	
 	public Drawing(Blackjack b) {
 		blackjack = b;
@@ -18,7 +19,6 @@ public class Drawing extends JPanel {
 	
 	public void paintComponent(Graphics g) {
 		
-//		System.out.print(blackjack.hand());
 		
 		g.setColor(Color.white);
 		g.fillRect(0, 0, 500, 400);
@@ -31,8 +31,9 @@ public class Drawing extends JPanel {
 			g.drawString("¿Œ∞£¿« Burst!!!!",10,100);}
 			
 		int x = 0;
+		list_hand = blackjack.list_hand();
 		for (int i = 0; i <blackjack.h_count() ; i++) {
-			
+//			g.drawString(list_hand[i], x*43+10, 110);
 			g.drawRect(x*43+3, 15, 41, 70);
 			x+=1;
 			}

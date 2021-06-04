@@ -15,8 +15,8 @@ public class Blackjack {
 	private String winner;
 	private Card[] h;
 	private Card[] ch;
-	private ArrayList<String> hand;
-	private ArrayList<String> chand;
+	private String[] list_hand = new String[11];
+	private String[] list_chand= new String[11];
 	private CardDeck deck;
 	private Card c;
 	private boolean stophuman;
@@ -34,10 +34,7 @@ public class Blackjack {
 		
 		h = p.showCards();
 		ch = c.showCards();
-		
-		ArrayList<String> hand = new ArrayList<String>();
-		ArrayList<String> chand = new ArrayList<String>();
-		
+
 		//인간 카드
 		h_count=1;
 		h_sumcard=0;
@@ -46,11 +43,11 @@ public class Blackjack {
 			h_sumcard += h[i].getRank();
 			if (h[i].getRank()<10) {
 				h_card += h[i].getSuit()+" 0"+h[i].getRank()+" ";
-				hand.add(h[i].getSuit()+" 0"+h[i].getRank());
+				list_hand[i] = h[i].getSuit()+" 0"+h[i].getRank();
 				}
 			else {
 				h_card += h[i].getSuit()+" "+h[i].getRank()+" ";
-				hand.add(h[i].getSuit()+" "+h[i].getRank());
+				list_hand[i] = h[i].getSuit()+" "+h[i].getRank();
 				}
 			}
 		
@@ -63,49 +60,43 @@ public class Blackjack {
 
 			if(ch[j].getRank()<10) {
 				ch_card = ch_card + ch[j].getSuit()+" 0"+ch[j].getRank()+"     ";
-				chand.add(ch[j].getSuit()+" 0"+ch[j].getRank());
+
 				}
 			else {
 				ch_card = ch_card + ch[j].getSuit()+" "+ch[j].getRank()+"     ";
-				chand.add(ch[j].getSuit()+" "+ch[j].getRank());
+				
 				}
 			}
-
 		//사람이 그만둘때 드로잉,프레임에 활용
-		stophuman = true;
-		
-		//집가서 할일
-		//chand와 hand의 arraylist를 일반 배열로 넣기위해 for구문을 활용해서 만들고 
-		//프라이빗으로 선언해서 배열을 밑에 함수에서 쓸수 있게 한다. 
-		// 히트에서 다시 배열을 arraylist에 배열을 넣은 다음, 새 카드를 추가하고
-		//다시 배열로 변환해서 리턴하고 드로잉에서 받는다.
-		//드로잉에서 상자 안에 글자를 넣는다.
-		}
+		stophuman = true;	
+	}
 	
 	//인간 딜러 역할 한장씩 뽑아서 추가함
 	public void hit(){
 		deck = new CardDeck();
-		c = deck.newCard(); 
+		c = deck.newCard(); 		
 		if (h_sumcard<21 & stophuman) {
 			h_sumcard = h_sumcard + c.getRank();
-
 			if(c.getRank()<10) {
 				h_card = h_card+"     "+c.getSuit()+" 0"+c.getRank();
 				}
 			else {
-				h_card = h_card+"     "+c.getSuit()+" "+c.getRank();
+				h_card = h_card+"     "+c.getSuit()+" "+c.getRank();		
 				}
 			
+			list_hand[h_count()+1]=c.getSuit()+" "+c.getRank();
+			for (int i =0; i<=h_count()+1;i++) {
+			System.out.print(list_hand[i]+","+i+"/");}
 			h_count +=1;
 		}		
 	}
 	
 	//카드패 리턴
-	public ArrayList<String> hand() {
-		return hand;
+	public String[] list_hand() {
+		return list_hand;
 	}
-	public ArrayList<String> chand() {
-		return chand;
+	public String[] list_chand() {
+		return list_chand;
 	}
 		
 	//스톱버튼을 누르면 스톱휴먼이 펄스가됨
@@ -122,7 +113,6 @@ public class Blackjack {
 		return h_count;
 	}
 	
-
 	public int ch_count() {
 		return ch_count;
 	}
