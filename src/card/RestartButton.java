@@ -18,7 +18,6 @@ public class RestartButton extends JButton implements ActionListener {
 		view.dispose();
 		Blackjack blackjack = new Blackjack(11);
 		new Frame(blackjack,new Drawing(blackjack));
-		view.update();
 	}
 
 }

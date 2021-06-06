@@ -4,20 +4,14 @@ public class Blackjack {
 	
 	private Card c;
 	private CardDeck deck = new CardDeck();
-	
 	private int h_sumcard;
 	private int ch_sumcard;
-	
 	private int h_count;
 	private int ch_count;
-	
 	private String winner;
-	
 	private Card[] ch;
 	private String[] list_hand = new String[11];
 	private String[] list_chand= new String[11];
-	
-	private int Ace = 0;
 	private boolean stophuman;
 	
 	public Blackjack(int card_num) {
@@ -40,42 +34,35 @@ public class Blackjack {
 		for (int j = 0; j<ch.length;j++ ) {
 			if(ch[j].getRank()==1) {
 				ch_sumcard += ch[j].getRank();
-				list_chand[j] = ch[j].getSuit()+" "+ch[j].getRank_s();
-				Ace +=1;
-				}
+				list_chand[j] = ch[j].getSuit()+" "+ch[j].getRank_s();}
 			else if (ch[j].getRank() > 10) {
 				ch_sumcard += 10;
 				list_chand[j] = ch[j].getSuit()+" "+ch[j].getRank_s();}
 			else {
 				ch_sumcard += ch[j].getRank();
 				list_chand[j] = ch[j].getSuit()+" "+ch[j].getRank();}
-			
 			}
 		}
 
 
 	//인간 딜러 역할 한장씩 뽑아서 추가함(버튼에서 활용)
-	//매번 새 카드덱에서 뽑아서 중복이 걸릴수 있음!!!
 	public void hit(){
 		c = deck.newCard(); 		
 		if (h_sumcard<21 & stophuman) {
 			if (c.getRank() == 1) {
 				h_sumcard = h_sumcard + c.getRank();
 				list_hand[h_count()]=c.getSuit()+" "+c.getRank_s();
-				Ace+=1;
 				}
-			else if (c.getRank() >10) {
+			else if (c.getRank() > 10) {
 				h_sumcard = h_sumcard + 10;
 				list_hand[h_count()]=c.getSuit()+" "+c.getRank_s();}
 			else {
 				h_sumcard = h_sumcard + c.getRank();
 				list_hand[h_count()]=c.getSuit()+" "+c.getRank();}
 			h_count +=1;
-			if (ch_sumcard <=11 && Ace>=1) {
-				ch_sumcard += 10;}
 			}
 		}
-	
+
 	//카드패 리턴
 	public String[] list_hand() {
 		return list_hand;}
