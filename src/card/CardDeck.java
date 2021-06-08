@@ -4,7 +4,6 @@ public class CardDeck {
 	
 	private int card_count; // 카드 덱에 남아있는 카드 장수 
 	private Card[] deck = new Card[4 * Card.SIZE_OF_ONE_SUIT];
-	// Invariant: deck[0], .., decl[card_count-1] 에 카드가 있다. 
 	
 	/** Constructor - CardDeck 카드 한 벌 생성  */ 
 	public CardDeck() { 

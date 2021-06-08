@@ -15,7 +15,7 @@ public class StopButton extends JButton implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		model.stophuman();
+		model.HumanTurnEnd();
 		view.update();
 	}
 

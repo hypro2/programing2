@@ -1,14 +1,12 @@
 package card;
 
-import javax.swing.JOptionPane;
-
+//사용안함
 public class HumanPlayer extends CardPlayer {
 	
 	public HumanPlayer(int max_cards) {
-		super(max_cards);
-	}
+		super(max_cards);}
+	
 	public boolean wantsACard() {
-//		String response = JOptionPane.showInputDialog("한장 더 드릴까요? (Y/N)");
 		boolean decision1 = true;
 
 		int card_sum = 0;
@@ -18,8 +16,6 @@ public class HumanPlayer extends CardPlayer {
 		
 		if(card_sum >= 21) {
 			decision1 = false;}
-//		else
-//			decision1 = response.equals("Y") || response.equals("y");
 
 		return decision1;
 
