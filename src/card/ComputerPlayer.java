@@ -8,7 +8,6 @@ public class ComputerPlayer extends CardPlayer {
 
 	public boolean wantsACard() {
 		boolean decision2 = true;
-		boolean boolComAce= false;
 		
 		//카드 숫자 합
 		int comAce =0;
@@ -21,6 +20,7 @@ public class ComputerPlayer extends CardPlayer {
 		}
 		
 		//Ace를 1 또는 11
+		boolean boolComAce = false;
 		if (card_sum <= 11 & comAce > 0) {
 			card_sum = card_sum + 10;
 			boolComAce = true;}
