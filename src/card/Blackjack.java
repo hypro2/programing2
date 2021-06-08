@@ -15,10 +15,10 @@ public class Blackjack {
 	private String[] HumanList = new String[11];
 	
 	//컴퓨터 변수
+	private Card[] ComHand;
 	private int ComSumCard;
 	private int ComCount;
 	private int ComAce;
-	private Card[] ComHand;
 	private boolean boolComAce = false;
 	private String[] ComList= new String[11];
 	
@@ -61,8 +61,8 @@ public class Blackjack {
 		//이건 무슨일이 있든 단 한번만 실행가능
 		if(ComSumCard>21 & ComAce > 0 & boolComAce) {
 			ComSumCard = ComSumCard -10;
-			ComAce = 0;
-			boolComAce = false;}
+			boolComAce = false;
+			ComAce = 0;}
 		}
 
 
@@ -93,8 +93,8 @@ public class Blackjack {
 
 		if(HumanSumCard>21 & HumanAce > 0 & boolHumanAce) {
 			HumanSumCard = HumanSumCard -10;
-			HumanAce = 0;
-			boolHumanAce = false;}
+			boolHumanAce = false;
+			HumanAce = 0;}
 
 		}
 

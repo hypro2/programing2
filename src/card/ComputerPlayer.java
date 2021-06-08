@@ -8,25 +8,27 @@ public class ComputerPlayer extends CardPlayer {
 
 	public boolean wantsACard() {
 		boolean decision2 = true;
+		boolean boolComAce= false;
 		
 		//카드 숫자 합
-		int Ace =0;
+		int comAce =0;
 		int card_sum = 0;
 		Card[] c = super.showCards();
 		for(int i =0; i < c.length; i++) {
 			card_sum += c[i].getRank();	
 			if(c[i].getRank() ==1) {
-				Ace = 1;}
+				comAce = 1;}
 		}
 		
 		//Ace를 1 또는 11
-		if (card_sum <= 11 & Ace > 0) {
+		if (card_sum <= 11 & comAce > 0) {
 			card_sum = card_sum + 10;
-			Ace = -1;}
+			boolComAce = true;}
 		
-		if (card_sum > 21 & Ace < 0) {
+		if (card_sum > 21 & comAce > 0 & boolComAce) {
 			card_sum = card_sum -10;
-			Ace = 0;}
+			boolComAce = false;
+			comAce = 0;}
 		
 		
 		//카드 숫자 합이 16초과이면 스탑
