@@ -123,7 +123,7 @@ public class Blackjack {
 		return HumanSumCard;}
 	public int ComSumCard() {
 		return ComSumCard;}
-	
+
 	//½ÂÀÚ ¸®ÅÏ
 	public String winner() {
 			 if ((HumanSumCard == 21 & HumanSumCard != ComSumCard) || 

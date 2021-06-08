@@ -38,9 +38,25 @@ public class Drawing extends JPanel {
 		
 		//인간 폭사 & 블랙잭
 		if ( blackjack.HumanSumCard() >21) {
-			g.drawString("인간의 Burst!!!!",10,100);}
+			g.drawString("인간의 Bust!!!!",10,100);}
+		
 		else if(blackjack.HumanSumCard()==21){
-			g.drawString("인간의 블랙잭!!!!",10,100);}
+			try {
+				if((HumanList[0].charAt(2) == 'A'||
+				    HumanList[0].charAt(2) == 'J'||
+				    HumanList[0].charAt(2) == 'Q'||
+				    HumanList[0].charAt(2) == 'K')&&
+				   (HumanList[1].charAt(2) == 'A'||
+				    HumanList[1].charAt(2) == 'J'||
+				    HumanList[1].charAt(2) == 'Q'||
+				    HumanList[1].charAt(2) == 'K')) {
+					g.drawString("인간의 블랙잭 승리!!!!",10,100);}
+				else {
+					g.drawString("인간의 21 승리!!!!",10,100);}
+			}
+			catch(ArrayIndexOutOfBoundsException e){
+				g.drawString("인간의 21 승리!!!!",10,100);}
+		}
 		
 		//시작 할 때 표시
 		if (blackjack.humanCount()==0) {
@@ -48,13 +64,15 @@ public class Drawing extends JPanel {
 			g.drawString("[Hit!] 를 누르면 게임이 시작 됩니다.",10,70);}
 			
 		
-		//컴퓨터 카드그리기
+		//컴퓨터 카드
 		g.setColor(Color.blue);
 		g.drawString("컴퓨터 카드",10,120);
 		ComList = blackjack.ComList();
 		
 		//스톱버튼을 누르면 공개되게 해둠
 		if (!blackjack.stop()) {	
+			
+			//컴퓨터 카드 그리기
 			int y = 0;
 			for (int i = 0; i <blackjack.ComCount() ; i++) {
 				g.drawString(ComList[i], y*43+11, 160);
@@ -63,9 +81,29 @@ public class Drawing extends JPanel {
 				}
 			//컴퓨터 폭사 & 블랙잭
 			if (blackjack.ComSumCard() >21) {
-				g.drawString("컴퓨터의 Burst!!!!",10,210);}
+				g.drawString("컴퓨터의 Bust!!!!",10,210);}
 			else if (blackjack.ComSumCard() == 21) {
-				g.drawString("컴퓨터의 블랙잭!!!!",10,210);}
+				g.drawString("컴퓨터의 21 승리!!!!",10,210);}
+			
+			else if(blackjack.ComSumCard()==21){
+				try {
+					if((ComList[0].charAt(2) == 'A'||
+						ComList[0].charAt(2) == 'J'||
+						ComList[0].charAt(2) == 'Q'||
+						ComList[0].charAt(2) == 'K')&&
+					   (ComList[1].charAt(2) == 'A'||
+					    ComList[1].charAt(2) == 'J'||
+					    ComList[1].charAt(2) == 'Q'||
+						ComList[1].charAt(2) == 'K')) {
+						g.drawString("컴퓨터의 블랙잭 승리!!!!",10,210);}
+					else {
+						g.drawString("컴퓨터의 21 승리!!!!",10,210);}
+				}
+				catch(ArrayIndexOutOfBoundsException e){
+					g.drawString("컴퓨터의 21 승리!!!!",10,210);}
+			}
+			
+			
 			
 			//승자 폰트 설정 및 출력
 			Font font = g.getFont().deriveFont( 20.0f );
@@ -76,12 +114,12 @@ public class Drawing extends JPanel {
 		    	g.setColor(Color.red);}
 		    else {
 		    	g.setColor(Color.orange);}
-	    	g.drawString("승자 : "+ blackjack.winner(), 150, 240); }
+		    
+	    	g.drawString("승자 : "+ blackjack.winner(), 150, 240);}
 		
 		//스톱버튼 누르기 전까지 비밀
 		else {
-			g.drawString("인간의 차례가 끝나기를 기다리고 있습니다.../",10,160);
-			}
+			g.drawString("인간의 차례가 끝나기를 기다리고 있습니다.../",10,160);}
 		}
 	}
 
