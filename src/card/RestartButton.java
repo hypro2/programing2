@@ -13,7 +13,6 @@ public class RestartButton extends JButton implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		
 		//프레임을 닫기
 		view.dispose();
 		

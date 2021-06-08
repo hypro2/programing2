@@ -47,14 +47,11 @@ public class Frame extends JFrame implements ActionListener {
 			label3.setText("승자 : "+ blackjack.winner());}
 		else {
 			label2.setText("컴퓨터의 카드 합 : 비밀 /");	
-			label3.setText("승자 : 비밀");
-		}
+			label3.setText("승자 : 비밀");}
 		repaint();
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 }	

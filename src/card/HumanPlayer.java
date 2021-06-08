@@ -1,6 +1,6 @@
 package card;
 
-//사용안함
+//블랙잭으로 기능 이동, 사용안함
 public class HumanPlayer extends CardPlayer {
 	
 	public HumanPlayer(int max_cards) {

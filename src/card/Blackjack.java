@@ -30,14 +30,14 @@ public class Blackjack {
 		Dealer d = new Dealer();
 		ComputerPlayer c = new ComputerPlayer(card_num);
 		
-		//사람이 그만둘때 컴퓨터터 카드를 보이게 하기위해 드로잉,프레임에 활용
+		//사람의 차례가 끝나면 컴퓨터의 카드를 보이게 하기
 		HumanTurnEnd = true;	
 		
 		//컴퓨터는 미리 실행
 		d.dealTo(c);
 		ComHand = c.showCards();
 
-		//컴퓨터 카드를 문자로 바꾸고 컴퓨터 손 리스트에 저장
+		//컴퓨터 카드를 문자로 바꾸고 컴퓨터손 리스트에 저장
 		ComCount=ComHand.length;
 		ComSumCard = 0;
 		for (int j = 0; j<ComHand.length;j++ ) {
@@ -58,7 +58,7 @@ public class Blackjack {
 			ComSumCard = ComSumCard +10;
 			boolComAce = true;}
 		
-		//이건 무슨일이 있든 단 한번만 실행가능
+		//Ace 11이 1이 되는 조건, 단 한번만 실행가능
 		if(ComSumCard>21 & ComAce > 0 & boolComAce) {
 			ComSumCard = ComSumCard -10;
 			boolComAce = false;
@@ -68,10 +68,11 @@ public class Blackjack {
 
 	//인간 딜러 역할 한장씩 뽑아서 추가함(버튼에서 활용)
 	public void hit(){
-		//카드 뽑기
+		
+		//덱에서 카드 뽑기
 		c = deck.newCard(); 	
 		
-		//뽑은 카드를 문자로 바꾸고 인간 손 리스트에 저장
+		//뽑은 카드를 문자로 바꾸고 인간손 리스트에 저장
 		if (HumanSumCard<21 & HumanTurnEnd) {
 			if (c.getRank() == 1) {
 				HumanSumCard = HumanSumCard + c.getRank();
@@ -90,12 +91,12 @@ public class Blackjack {
 		if(HumanSumCard<=11 & HumanAce > 0) {
 			HumanSumCard = HumanSumCard +10;
 			boolHumanAce = true;}
-
+		
+		//Ace 11이 1이 되는 조건, 단 한번만 실행가능
 		if(HumanSumCard>21 & HumanAce > 0 & boolHumanAce) {
 			HumanSumCard = HumanSumCard -10;
 			boolHumanAce = false;
 			HumanAce = 0;}
-
 		}
 
 	//카드패 리턴
@@ -104,8 +105,8 @@ public class Blackjack {
 	public String[] ComList() {
 		return ComList;}
 		
-	//스톱버튼을 누르면 스톱휴먼이 펄스가됨(버튼에서 활용)
-	//스톱휴먼의 값을 리턴해줌
+	//스톱버튼을 누르면 휴먼턴엔드 값이 펄스가됨(버튼에서 활용)
+	//휴먼턴엔드의 값을 리턴해줌
 	public void HumanTurnEnd() {
 		HumanTurnEnd = false;}
 	public boolean stop() {
@@ -117,7 +118,7 @@ public class Blackjack {
 	public int ComCount() {
 		return ComCount;}
 	
-	//카드합 리턴
+	//카드 합 리턴
 	public int HumanSumCard() {
 		return HumanSumCard;}
 	public int ComSumCard() {
