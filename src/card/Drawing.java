@@ -106,9 +106,7 @@ public class Drawing extends JPanel {
 					    ComList[1].charAt(2) == 'Q'||
 						ComList[1].charAt(2) == 'K'||
 						ComList[1].substring(2) =="10")) {
-						g.drawString("컴퓨터의 블랙잭 승리!!!!",10,210);
-						System.out.println(ComList[0].charAt(2)+" "+ComList[1].charAt(2));
-						}
+						g.drawString("컴퓨터의 블랙잭 승리!!!!",10,210);}
 					else {
 						g.drawString("컴퓨터의 21 승리!!!!",10,210);}
 				}
