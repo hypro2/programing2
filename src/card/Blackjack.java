@@ -11,7 +11,7 @@ public class Blackjack {
 	private int HumanSumCard;
 	private int humanCount;
 	private int HumanAce;
-	private boolean boolHumanAce = true;
+	private boolean boolHumanAce = false;
 	private String[] HumanList = new String[11];
 	
 	//컴퓨터 변수
@@ -19,7 +19,7 @@ public class Blackjack {
 	private int ComCount;
 	private int ComAce;
 	private Card[] ComHand;
-	private boolean boolComAce = true;
+	private boolean boolComAce = false;
 	private String[] ComList= new String[11];
 	
 	//승자, 인간턴종료 확인
@@ -56,7 +56,7 @@ public class Blackjack {
 		//Ace 카드를 1 또는 11
 		if(ComSumCard<=11 & ComAce > 0) {
 			ComSumCard = ComSumCard +10;
-			ComAce = -1;}
+			boolComAce = true;}
 		
 		//이건 무슨일이 있든 단 한번만 실행가능
 		if(ComSumCard>21 & ComAce > 0 & boolComAce) {
@@ -89,12 +89,13 @@ public class Blackjack {
 		//Ace 카드를 1 또는 11
 		if(HumanSumCard<=11 & HumanAce > 0) {
 			HumanSumCard = HumanSumCard +10;
-			HumanAce = -1;}
-		
+			boolHumanAce = true;}
+
 		if(HumanSumCard>21 & HumanAce > 0 & boolHumanAce) {
 			HumanSumCard = HumanSumCard -10;
 			HumanAce = 0;
 			boolHumanAce = false;}
+
 		}
 
 	//카드패 리턴
