@@ -58,8 +58,6 @@ public class Blackjack {
 			ComSumCard = ComSumCard +10;
 			ComAce = -1;}
 		
-
-
 		//이건 무슨일이 있든 단 한번만 실행가능
 		if(ComSumCard>21 & ComAce < 0 & boolComAce ) {
 			ComSumCard = ComSumCard -10;
