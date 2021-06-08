@@ -25,6 +25,8 @@ public class Card {
 	public Card(String s, int r) { 
 		suit = s;
 		rank = r;
+		
+		//문자 카드
 		if(rank == 1) {rank_s = 'A';}
 		else if(rank == 11) {rank_s = 'J';}
 		else if(rank == 12) {rank_s = 'Q';}
@@ -40,6 +42,8 @@ public class Card {
 	public int getRank() { 
 		return rank; 
 	}
+	
+	//문자 카드 리턴
 	public char getRank_s() {
 		return rank_s;
 	}

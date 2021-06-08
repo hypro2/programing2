@@ -5,7 +5,6 @@ public class Dealer {
 	
 	private CardDeck deck;
 	private Card c;
-	private String card;
 	
 	public Dealer() {
 
@@ -16,7 +15,6 @@ public class Dealer {
 			deck = new CardDeck();
 			c = deck.newCard();
 			p.receiveCard(c);
-			card = (c.getSuit()+" "+c.getRank());
 		}
 	}
 }

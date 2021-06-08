@@ -20,6 +20,7 @@ public class ComputerPlayer extends CardPlayer {
 			}
 		}
 		
+		//Ace¸¦ 1 ¶Ç´Â 11
 		if (card_sum <= 11 & Ace > 0) {
 			card_sum = card_sum + 10;
 			Ace = -1;

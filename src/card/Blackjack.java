@@ -20,9 +20,10 @@ public class Blackjack {
 		Dealer d = new Dealer();
 		ComputerPlayer c = new ComputerPlayer(card_num);
 
-		//인간 카드
+		//인간 카드 초기화
 		h_count=0;
 		h_sumcard=0;
+		
 		//사람이 그만둘때 컴퓨터터 카드를 보이게 하기위해 드로잉,프레임에 활용
 		stophuman = true;	
 		
@@ -30,7 +31,7 @@ public class Blackjack {
 		d.dealTo(c);
 		ch = c.showCards();
 
-		//컴퓨터 카드를 문자로 바꾸고 리스트에 저장
+		//컴퓨터 카드를 문자로 바꾸고 컴퓨터 손 리스트에 저장
 		ch_count=ch.length;
 		ch_sumcard = 0;
 		for (int j = 0; j<ch.length;j++ ) {
@@ -45,6 +46,8 @@ public class Blackjack {
 				ch_sumcard += ch[j].getRank();
 				list_chand[j] = ch[j].getSuit()+" "+ch[j].getRank();}
 			}
+		
+		//Ace 카드를 1 또는 11
 		if(ch_sumcard<=11 & ComAce > 0) {
 			ch_sumcard = ch_sumcard +10;
 			ComAce =-1;}
@@ -56,7 +59,10 @@ public class Blackjack {
 
 	//인간 딜러 역할 한장씩 뽑아서 추가함(버튼에서 활용)
 	public void hit(){
-		c = deck.newCard(); 		
+		//카드 뽑기
+		c = deck.newCard(); 	
+		
+		//뽑은 카드를 문자로 바꾸고 인간 손 리스트에 저장
 		if (h_sumcard<21 & stophuman) {
 			if (c.getRank() == 1) {
 				h_sumcard = h_sumcard + c.getRank();
@@ -70,6 +76,8 @@ public class Blackjack {
 				list_hand[h_count()]=c.getSuit()+" "+c.getRank();}
 			h_count +=1;
 			}
+		
+		//Ace 카드를 1 또는 11
 		if(h_sumcard<=11 & HumanAce > 0) {
 			h_sumcard = h_sumcard +10;
 			HumanAce =-1;}

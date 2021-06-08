@@ -33,9 +33,10 @@ public class Drawing extends JPanel {
 		else if(blackjack.HumanSumCard()==21){
 			g.drawString("인간의 블랙잭!!!!",10,100);}
 		
+		//시작 할 때 표시
 		if (blackjack.h_count()==0) {
-			g.drawString("Start!!",10,50);
-			}
+			g.drawString("Start!!",10,50);}
+		
 		//인간 카드그리기	
 		int x = 0;
 		list_hand = blackjack.list_hand();
