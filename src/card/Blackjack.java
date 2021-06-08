@@ -93,7 +93,7 @@ public class Blackjack {
 			HumanSumCard = HumanSumCard +10;
 			HumanAce = -1;}
 		else if(HumanSumCard > 11 & HumanAce >0) {
-			ComAce = -1;}
+			HumanAce = -1;}
 		
 		
 		if(HumanSumCard>21 & HumanAce < 0) {
