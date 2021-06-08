@@ -46,11 +46,13 @@ public class Drawing extends JPanel {
 				if((HumanList[0].charAt(2) == 'A'||
 				    HumanList[0].charAt(2) == 'J'||
 				    HumanList[0].charAt(2) == 'Q'||
-				    HumanList[0].charAt(2) == 'K')&&
+				    HumanList[0].charAt(2) == 'K'||
+				    HumanList[0].substring(2)=="10")&&
 				   (HumanList[1].charAt(2) == 'A'||
 				    HumanList[1].charAt(2) == 'J'||
 				    HumanList[1].charAt(2) == 'Q'||
-				    HumanList[1].charAt(2) == 'K')) {
+				    HumanList[1].charAt(2) == 'K'||
+				    HumanList[1].substring(2)=="10")) {
 					g.drawString("인간의 블랙잭 승리!!!!",10,100);}
 				else {
 					g.drawString("인간의 21 승리!!!!",10,100);}
@@ -75,6 +77,7 @@ public class Drawing extends JPanel {
 		g.setColor(Color.blue);
 		g.drawString("컴퓨터 카드",10,120);
 		ComList = blackjack.ComList();
+		g.drawRect(0, 220, 500, 25);
 		
 		//스톱버튼을 누르면 공개되게 해둠
 		if (!blackjack.stop()) {	
@@ -96,12 +99,16 @@ public class Drawing extends JPanel {
 					if((ComList[0].charAt(2) == 'A'||
 						ComList[0].charAt(2) == 'J'||
 						ComList[0].charAt(2) == 'Q'||
-						ComList[0].charAt(2) == 'K')&&
+						ComList[0].charAt(2) == 'K'||
+						ComList[0].substring(2) =="10")&&
 					   (ComList[1].charAt(2) == 'A'||
 					    ComList[1].charAt(2) == 'J'||
 					    ComList[1].charAt(2) == 'Q'||
-						ComList[1].charAt(2) == 'K')) {
-						g.drawString("컴퓨터의 블랙잭 승리!!!!",10,210);}
+						ComList[1].charAt(2) == 'K'||
+						ComList[1].substring(2) =="10")) {
+						g.drawString("컴퓨터의 블랙잭 승리!!!!",10,210);
+						System.out.println(ComList[0].charAt(2)+" "+ComList[1].charAt(2));
+						}
 					else {
 						g.drawString("컴퓨터의 21 승리!!!!",10,210);}
 				}
@@ -115,15 +122,15 @@ public class Drawing extends JPanel {
 			
 			//승자 크기, 색상 설정
 		    g.setFont(g.getFont().deriveFont(20.0f));
-		    if (blackjack.winner()=="컴퓨터 승") {
+		    if (blackjack.winner()=="컴퓨터") {
 		    	g.setColor(Color.blue);}
-		    else if (blackjack.winner()=="인간 승") {
+		    else if (blackjack.winner()=="인간") {
 		    	g.setColor(Color.red);}
 		    else {
 		    	g.setColor(Color.orange);}
 		    
 		    //승자 출력
-	    	g.drawString("승자 : "+ blackjack.winner(), 150, 240);}
+	    	g.drawString("승자 : "+ blackjack.winner(), 200, 240);}
 		
 		//스톱버튼 누르기 전까지 비밀
 		else {

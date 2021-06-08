@@ -129,15 +129,15 @@ public class Blackjack {
 			 if ((HumanSumCard == 21 & HumanSumCard != ComSumCard) || 
 				 (HumanSumCard > ComSumCard & HumanSumCard < 21 & ComSumCard < 21) ||
 				 (ComSumCard > 21 & HumanSumCard < 21)) {
-			winner = "ÀÎ°£ ½Â";}
+			winner = "ÀÎ°£";}
 		
 		else if ((ComSumCard == 21  & HumanSumCard != ComSumCard) ||
 				 (ComSumCard > HumanSumCard & HumanSumCard < 21 & ComSumCard < 21)||
 				 (HumanSumCard > 21)) {
-			winner = "ÄÄÇ»ÅÍ ½Â";}
+			winner = "ÄÄÇ»ÅÍ";}
 		
 		else{
-			winner = "ºñ±è";}
+			winner = "¹«½ÂºÎ";}
 		
 		return winner;
 	}

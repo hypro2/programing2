@@ -14,8 +14,12 @@ public class ComputerPlayer extends CardPlayer {
 		int card_sum = 0;
 		Card[] c = super.showCards();
 		for(int i =0; i < c.length; i++) {
-			card_sum += c[i].getRank();	
-			if(c[i].getRank() ==1) {
+			if(c[i].getRank() == 11 || c[i].getRank() == 12 || c[i].getRank() == 13) {
+				card_sum += 10;}
+			else {
+				card_sum += c[i].getRank();}
+			
+			if(c[i].getRank() == 1) {
 				comAce = 1;}
 		}
 		
