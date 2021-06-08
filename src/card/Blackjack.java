@@ -126,16 +126,19 @@ public class Blackjack {
 	
 	//½ÂÀÚ ¸®ÅÏ
 	public String winner() {
-		if (HumanSumCard == 21 & HumanSumCard != ComSumCard | HumanSumCard > ComSumCard & HumanSumCard < 21 & ComSumCard < 21) {
+			 if ((HumanSumCard == 21 & HumanSumCard != ComSumCard) || 
+				 (HumanSumCard > ComSumCard & HumanSumCard < 21 & ComSumCard < 21) ||
+				 (ComSumCard > 21 & HumanSumCard < 21)) {
 			winner = "ÀÎ°£ ½Â";}
-		else if (ComSumCard ==21  & HumanSumCard != ComSumCard | ComSumCard > HumanSumCard & HumanSumCard < 21 & ComSumCard < 21) {
+		
+		else if ((ComSumCard == 21  & HumanSumCard != ComSumCard) ||
+				 (ComSumCard > HumanSumCard & HumanSumCard < 21 & ComSumCard < 21)||
+				 (HumanSumCard > 21 & ComSumCard < 21)) {
 			winner = "ÄÄÇ»ÅÍ ½Â";}
-		else if (ComSumCard > 21 & HumanSumCard < 21) {
-			winner = "ÀÎ°£ ½Â";}
-		else if (HumanSumCard > 21 & ComSumCard < 21) {
-			winner = "ÄÄÇ»ÅÍ ½Â";}
+		
 		else{
 			winner = "ºñ±è";}
+		
 		return winner;
 	}
 
