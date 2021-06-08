@@ -58,7 +58,7 @@ public class Blackjack {
 		//Ace 카드를 1 또는 11
 		if(ComSumCard<=11 & ComAce > 0) {
 			ComSumCard = ComSumCard +10;
-			ComAce = 0;}
+			ComAce = -1;}
 		if(ComSumCard>21 & ComAce < 0) {
 			ComSumCard = ComSumCard -10;
 			ComAce = 0;}
@@ -88,7 +88,7 @@ public class Blackjack {
 		//Ace 카드를 1 또는 11
 		if(HumanSumCard<=11 & HumanAce > 0) {
 			HumanSumCard = HumanSumCard +10;
-			HumanAce = 0;}
+			HumanAce = -1;}
 		if(HumanSumCard>21 & HumanAce < 0) {
 			HumanSumCard = HumanSumCard -10;
 			HumanAce = 0;}
