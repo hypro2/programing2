@@ -27,19 +27,20 @@ public class Drawing extends JPanel {
 		//인간 카드
 		g.setColor(Color.red);
 		g.drawString("인간 카드",10,10);
+		HumanList = blackjack.HumanList();
 		
 		//인간 카드그리기	
 		int x = 0;
-		HumanList = blackjack.HumanList();
 		for (int i = 0; i <blackjack.humanCount() ; i++) {
 			g.drawString(HumanList[i], x*43+10,50);
 			g.drawRect(x*43+3, 15, 41, 70);
 			x+=1;}
 		
-		//인간 폭사 & 블랙잭
+		//인간 폭사 조건
 		if ( blackjack.HumanSumCard() >21) {
 			g.drawString("인간의 Bust!!!!",10,100);}
 		
+		//인간 블랙잭 승리 조건
 		else if(blackjack.HumanSumCard()==21){
 			try {
 				if((HumanList[0].charAt(2) == 'A'||
@@ -79,12 +80,11 @@ public class Drawing extends JPanel {
 				g.drawRect(y*43+3, 125, 41, 70);
 				y+=1;
 				}
-			//컴퓨터 폭사 & 블랙잭
+			//컴퓨터 폭사 조건
 			if (blackjack.ComSumCard() >21) {
 				g.drawString("컴퓨터의 Bust!!!!",10,210);}
-			else if (blackjack.ComSumCard() == 21) {
-				g.drawString("컴퓨터의 21 승리!!!!",10,210);}
 			
+			//컴퓨터 블랙잭 승리 조건
 			else if(blackjack.ComSumCard()==21){
 				try {
 					if((ComList[0].charAt(2) == 'A'||
@@ -103,11 +103,8 @@ public class Drawing extends JPanel {
 					g.drawString("컴퓨터의 21 승리!!!!",10,210);}
 			}
 			
-			
-			
-			//승자 폰트 설정 및 출력
-			Font font = g.getFont().deriveFont( 20.0f );
-		    g.setFont( font );
+			//승자 크기, 색상 설정
+		    g.setFont(g.getFont().deriveFont(20.0f));
 		    if (blackjack.winner()=="컴퓨터 승") {
 		    	g.setColor(Color.blue);}
 		    else if (blackjack.winner()=="인간 승") {
@@ -115,6 +112,7 @@ public class Drawing extends JPanel {
 		    else {
 		    	g.setColor(Color.orange);}
 		    
+		    //승자 출력
 	    	g.drawString("승자 : "+ blackjack.winner(), 150, 240);}
 		
 		//스톱버튼 누르기 전까지 비밀
