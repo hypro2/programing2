@@ -35,7 +35,8 @@ public class Drawing extends JPanel {
 		
 		//시작 할 때 표시
 		if (blackjack.h_count()==0) {
-			g.drawString("Start!!",10,50);}
+			g.drawString("블랙잭에 오신걸 환영합니다.",10,50);
+			g.drawString("[Hit!] 를 누르면 게임이 시작 됩니다.",10,70);}
 		
 		//인간 카드그리기	
 		int x = 0;
@@ -78,7 +79,7 @@ public class Drawing extends JPanel {
 		
 		//스톱버튼 누르기 전까지 비밀
 		else {
-			g.drawString("비밀",10,160);
+			g.drawString("인간의 차례가 끝나기를 기다리고 있습니다.../",10,160);
 			}
 		}
 	}
