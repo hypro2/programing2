@@ -59,6 +59,9 @@ public class Blackjack {
 		if(ComSumCard<=11 & ComAce > 0) {
 			ComSumCard = ComSumCard +10;
 			ComAce = -1;}
+		else if(ComSumCard > 11 & ComAce >0) {
+			ComAce = -1;}
+		
 		if(ComSumCard>21 & ComAce < 0) {
 			ComSumCard = ComSumCard -10;
 			ComAce = 0;}
@@ -89,6 +92,10 @@ public class Blackjack {
 		if(HumanSumCard<=11 & HumanAce > 0) {
 			HumanSumCard = HumanSumCard +10;
 			HumanAce = -1;}
+		else if(HumanSumCard > 11 & HumanAce >0) {
+			ComAce = -1;}
+		
+		
 		if(HumanSumCard>21 & HumanAce < 0) {
 			HumanSumCard = HumanSumCard -10;
 			HumanAce = 0;}
