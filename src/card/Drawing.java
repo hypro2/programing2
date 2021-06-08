@@ -59,6 +59,10 @@ public class Drawing extends JPanel {
 				g.drawString("인간의 21 승리!!!!",10,100);}
 		}
 		
+		//게임 시작 후에는 인간 카드합 출력
+		else if(blackjack.HumanSumCard() != 0){
+			g.drawString("인간의 카드 합은 "+blackjack.HumanSumCard()+"입니다.",10,100);}
+		
 		//시작 할 때 표시, 시작 전에 스탠드 할때
 		if (blackjack.humanCount()==0 && blackjack.stop()) {
 			g.drawString("블랙잭에 오신걸 환영합니다.",10,50);
@@ -104,6 +108,10 @@ public class Drawing extends JPanel {
 				catch(ArrayIndexOutOfBoundsException e){
 					g.drawString("컴퓨터의 21 승리!!!!",10,210);}
 			}
+			
+			//컴퓨터 카드 합 출력
+			else {
+				g.drawString("컴퓨터의 카드 합은 "+blackjack.ComSumCard()+"입니다.",10,210);}
 			
 			//승자 크기, 색상 설정
 		    g.setFont(g.getFont().deriveFont(20.0f));
