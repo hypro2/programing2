@@ -8,6 +8,8 @@ public class Blackjack {
 	private int ch_sumcard;
 	private int h_count;
 	private int ch_count;
+	private int HumanAce;
+	private int ComAce;
 	private String winner;
 	private Card[] ch;
 	private String[] list_hand = new String[11];
@@ -34,7 +36,8 @@ public class Blackjack {
 		for (int j = 0; j<ch.length;j++ ) {
 			if(ch[j].getRank()==1) {
 				ch_sumcard += ch[j].getRank();
-				list_chand[j] = ch[j].getSuit()+" "+ch[j].getRank_s();}
+				list_chand[j] = ch[j].getSuit()+" "+ch[j].getRank_s();
+				ComAce=1;}
 			else if (ch[j].getRank() > 10) {
 				ch_sumcard += 10;
 				list_chand[j] = ch[j].getSuit()+" "+ch[j].getRank_s();}
@@ -42,6 +45,12 @@ public class Blackjack {
 				ch_sumcard += ch[j].getRank();
 				list_chand[j] = ch[j].getSuit()+" "+ch[j].getRank();}
 			}
+		if(ch_sumcard<=11 & ComAce > 0) {
+			ch_sumcard = ch_sumcard +10;
+			ComAce =-1;}
+		if(ch_sumcard>21 & ComAce < 0) {
+			ch_sumcard = ch_sumcard -10;
+			ComAce = 0;}
 		}
 
 
@@ -52,7 +61,7 @@ public class Blackjack {
 			if (c.getRank() == 1) {
 				h_sumcard = h_sumcard + c.getRank();
 				list_hand[h_count()]=c.getSuit()+" "+c.getRank_s();
-				}
+				HumanAce = 1;}
 			else if (c.getRank() > 10) {
 				h_sumcard = h_sumcard + 10;
 				list_hand[h_count()]=c.getSuit()+" "+c.getRank_s();}
@@ -61,6 +70,12 @@ public class Blackjack {
 				list_hand[h_count()]=c.getSuit()+" "+c.getRank();}
 			h_count +=1;
 			}
+		if(h_sumcard<=11 & HumanAce > 0) {
+			h_sumcard = h_sumcard +10;
+			HumanAce =-1;}
+		if(h_sumcard>21 & HumanAce < 0) {
+			h_sumcard = h_sumcard -10;
+			HumanAce = 0;}
 		}
 
 	//카드패 리턴
