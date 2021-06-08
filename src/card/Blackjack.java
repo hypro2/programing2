@@ -133,7 +133,7 @@ public class Blackjack {
 		
 		else if ((ComSumCard == 21  & HumanSumCard != ComSumCard) ||
 				 (ComSumCard > HumanSumCard & HumanSumCard < 21 & ComSumCard < 21)||
-				 (HumanSumCard > 21 & ComSumCard < 21)) {
+				 (HumanSumCard > 21)) {
 			winner = "ÄÄÇ»ÅÍ ½Â";}
 		
 		else{

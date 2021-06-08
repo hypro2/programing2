@@ -59,10 +59,12 @@ public class Drawing extends JPanel {
 				g.drawString("인간의 21 승리!!!!",10,100);}
 		}
 		
-		//시작 할 때 표시
-		if (blackjack.humanCount()==0) {
+		//시작 할 때 표시, 시작 전에 스탠드 할때
+		if (blackjack.humanCount()==0 && blackjack.stop()) {
 			g.drawString("블랙잭에 오신걸 환영합니다.",10,50);
 			g.drawString("[Hit!] 를 누르면 게임이 시작 됩니다.",10,70);}
+		else if(blackjack.humanCount()==0 && !blackjack.stop()){
+			g.drawString("게임을 기권 하셨습니다.",10,50);}
 			
 		
 		//컴퓨터 카드
