@@ -38,7 +38,7 @@ public class Drawing extends JPanel {
 		
 		//인간 폭사 조건
 		if ( blackjack.HumanSumCard() >21) {
-			g.drawString("인간의 Bust!!!!",10,100);}
+			g.drawString("인간의 Bust!!!! 컴퓨터의 패와 상관없이 패배입니다.",10,100);}
 		
 		//인간 블랙잭 승리 조건
 		else if(blackjack.HumanSumCard()==21){
