@@ -128,12 +128,12 @@ public class Blackjack {
 	public String winner() {
 			 if ((HumanSumCard == 21 & HumanSumCard != ComSumCard) || 
 				 (HumanSumCard > ComSumCard & HumanSumCard < 21 & ComSumCard < 21) ||
-				 (ComSumCard > 21 & HumanSumCard < 21)) {
+				 (ComSumCard > 21 & HumanSumCard < 21 && HumanSumCard != 0)) {
 			winner = "인간";}
 		
 		else if ((ComSumCard == 21  & HumanSumCard != ComSumCard) ||
 				 (ComSumCard > HumanSumCard & HumanSumCard < 21 & ComSumCard < 21)||
-				 (HumanSumCard > 21)) {
+				 (HumanSumCard > 21 || HumanSumCard == 0)) {
 			winner = "컴퓨터";}
 		
 		else{
