@@ -47,12 +47,12 @@ public class Drawing extends JPanel {
 				    HumanList[0].charAt(2) == 'J'||
 				    HumanList[0].charAt(2) == 'Q'||
 				    HumanList[0].charAt(2) == 'K'||
-				    HumanList[0].substring(2)=="10")&&
+				    Integer.parseInt(HumanList[0].substring(2))==10)&&
 				   (HumanList[1].charAt(2) == 'A'||
 				    HumanList[1].charAt(2) == 'J'||
 				    HumanList[1].charAt(2) == 'Q'||
 				    HumanList[1].charAt(2) == 'K'||
-				    HumanList[1].substring(2)=="10")) {
+				    Integer.parseInt(HumanList[1].substring(2))==10)) {
 					g.drawString("인간의 블랙잭 승리!!!!",10,100);}
 				else {
 					g.drawString("인간의 21 승리!!!!",10,100);}
@@ -100,12 +100,12 @@ public class Drawing extends JPanel {
 						ComList[0].charAt(2) == 'J'||
 						ComList[0].charAt(2) == 'Q'||
 						ComList[0].charAt(2) == 'K'||
-						ComList[0].substring(2) =="10")&&
+						Integer.parseInt(ComList[0].substring(2))==10)&&
 					   (ComList[1].charAt(2) == 'A'||
 					    ComList[1].charAt(2) == 'J'||
 					    ComList[1].charAt(2) == 'Q'||
 						ComList[1].charAt(2) == 'K'||
-						ComList[1].substring(2) =="10")) {
+						Integer.parseInt(ComList[1].substring(2))==10)) {
 						g.drawString("컴퓨터의 블랙잭 승리!!!!",10,210);}
 					else {
 						g.drawString("컴퓨터의 21 승리!!!!",10,210);}
