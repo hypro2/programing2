@@ -91,7 +91,7 @@ public class Drawing extends JPanel {
 			g.drawString("인간의 시작을 기다리고 있습니다.../",10,160);}
 		
 		//스톱버튼을 누르면 공개되게 해둠
-		if (!blackjack.stop()) {	
+		if (!blackjack.stop()&&blackjack.HumanSumCard()>0) {	
 			
 			//컴퓨터 카드 그리기
 			int y = 1;
