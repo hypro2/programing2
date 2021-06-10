@@ -14,6 +14,7 @@ public class Drawing extends JPanel {
 	private String[] ComList = new String[11];
 	private int HumanWinCount = 0;
 	private int ComWinCount = 0;
+	private int GameCount = 0;
 	
 	public Drawing(Blackjack b) {
 		blackjack = b;
@@ -71,7 +72,7 @@ public class Drawing extends JPanel {
 		//시작 할 때 표시, 시작 전에 스탠드 할때
 		if (blackjack.humanCount()==0 && blackjack.stop()) {
 			g.drawString("블랙잭에 오신걸 환영합니다.",10,50);
-			g.drawString("[Hit!] 를 누르면 게임이 시작 됩니다.",10,70);}
+			g.drawString("[Start] 를 누르면 게임이 시작 됩니다.",10,70);}
 		else if(blackjack.humanCount()==0 && !blackjack.stop()){
 			g.drawString("게임을 기권 하셨습니다.",10,50);}
 			
@@ -82,8 +83,12 @@ public class Drawing extends JPanel {
 		ComList = blackjack.ComList();
 		g.drawString("컴퓨터 승리 :"+ComWinCount+"회", 150, 120);
 		g.drawRect(0, 220, 500, 25);
-		g.drawString(ComList[0], 11, 160);
-		g.drawRect(3, 125, 41, 70);
+		
+		if(blackjack.HumanStart()) {
+			g.drawString(ComList[0], 11, 160);
+			g.drawRect(3, 125, 41, 70);}
+		else if (blackjack.stop()) {
+			g.drawString("인간의 시작을 기다리고 있습니다.../",10,160);}
 		
 		//스톱버튼을 누르면 공개되게 해둠
 		if (!blackjack.stop()) {	
@@ -128,19 +133,30 @@ public class Drawing extends JPanel {
 		    g.setFont(g.getFont().deriveFont(20.0f));
 		    if (blackjack.winner()=="컴퓨터") {
 		    	g.setColor(Color.blue);
-		    	ComWinCount=ComWinCount+1;}
+		    	ComWinCount=ComWinCount+1;
+		    	GameCount = GameCount + 1;}
 		    else if (blackjack.winner()=="인간") {
 		    	g.setColor(Color.red);
-		    	HumanWinCount=HumanWinCount+1;}
+		    	HumanWinCount=HumanWinCount+1;
+		    	GameCount = GameCount + 1;}
 		    else {
-		    	g.setColor(Color.orange);}
+		    	g.setColor(Color.orange);
+		    	GameCount = GameCount + 1;}
 		    
 		    //승자 출력
-	    	g.drawString("승자 : "+ blackjack.winner(), 200, 240);}
+	    	g.drawString(GameCount + "번째 게임의 승자 : "+ blackjack.winner(), 10, 240);}
 		
 		//스톱버튼 누르기 전까지 비밀
 		else {
+			if(blackjack.HumanStart()) {
 			g.drawString("인간의 차례가 끝나기를 기다리고 있습니다.../",50,160);}
+			g.setFont(g.getFont().deriveFont(20.0f));
+			g.setColor(Color.blue);
+			if(GameCount==0) {
+				g.drawString("1번째 게임", 10, 240);}
+			else {
+				g.drawString(GameCount+1+"번째 게임", 10, 240);}
+			}
 		}
 	}
 

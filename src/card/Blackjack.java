@@ -24,13 +24,12 @@ public class Blackjack {
 	
 	//승자, 인간턴종료 확인
 	private String winner;
+	private boolean HumanStart = false;
 	private boolean HumanTurnEnd;
 	
 	public Blackjack(int card_num) {
 		ComHand();
 		comhit();
-		hit();
-		hit();
 	}
 	
 	public Card[] ComHand(){
@@ -76,7 +75,7 @@ public class Blackjack {
 		
 		//덱에서 카드 뽑기
 		c = deck.newCard(); 	
-		
+		HumanStart = true;
 		//뽑은 카드를 문자로 바꾸고 인간손 리스트에 저장
 		if (HumanSumCard<21 & HumanTurnEnd) {
 			if (c.getRank() == 1) {
@@ -116,6 +115,8 @@ public class Blackjack {
 		HumanTurnEnd = false;}
 	public boolean stop() {
 		return HumanTurnEnd;}
+	public boolean HumanStart() {
+		return HumanStart;}
 	
 	//카드 매수 리턴
 	public int humanCount() {

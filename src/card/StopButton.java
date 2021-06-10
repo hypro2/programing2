@@ -16,8 +16,9 @@ public class StopButton extends JButton implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		//인간의 차례를 끝내고 컴퓨터의 값을 공개
+		if(model.stop()) {
 		model.HumanTurnEnd();
-		view.update();
+		view.update();}
 	}
 
 }
