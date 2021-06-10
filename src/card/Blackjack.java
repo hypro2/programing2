@@ -25,18 +25,26 @@ public class Blackjack {
 	//승자, 인간턴종료 확인
 	private String winner;
 	private boolean HumanTurnEnd;
+	private int HumanWinCount;
+	private int ComWinCount;
 	
 	public Blackjack(int card_num) {
+		ComHand();
+		comhit();
+		HumanWinCount = 0;
+		ComWinCount = 0;
+	}
+	
+	public Card[] ComHand(){
 		Dealer d = new Dealer();
-		ComputerPlayer c = new ComputerPlayer(card_num);
-		
-		//사람의 차례가 끝나면 컴퓨터의 카드를 보이게 하기
+		ComputerPlayer c = new ComputerPlayer(11);	
 		HumanTurnEnd = true;	
-		
-		//컴퓨터는 미리 실행
 		d.dealTo(c);
-		ComHand = c.showCards();
-
+		ComHand = c.showCards();	
+		return ComHand;
+		}
+	
+	public void comhit(){
 		//컴퓨터 카드를 문자로 바꾸고 컴퓨터손 리스트에 저장
 		ComCount=ComHand.length;
 		ComSumCard = 0;
@@ -64,7 +72,6 @@ public class Blackjack {
 			boolComAce = false;
 			ComAce = 0;}
 		}
-
 
 	//인간 딜러 역할 한장씩 뽑아서 추가함(버튼에서 활용)
 	public void hit(){
@@ -129,7 +136,8 @@ public class Blackjack {
 			 if ((HumanSumCard == 21 & HumanSumCard != ComSumCard) || 
 				 (HumanSumCard > ComSumCard & HumanSumCard < 21 & ComSumCard < 21) ||
 				 (ComSumCard > 21 & HumanSumCard < 21 && HumanSumCard != 0)) {
-			winner = "인간";}
+			winner = "인간";
+			HumanWinCount =+1;}
 		
 		else if ((ComSumCard == 21  & HumanSumCard != ComSumCard) ||
 				 (ComSumCard > HumanSumCard & HumanSumCard < 21 & ComSumCard < 21)||
@@ -137,9 +145,32 @@ public class Blackjack {
 			winner = "컴퓨터";}
 		
 		else{
-			winner = "무승부";}
-		
+			winner = "무승부";
+			ComWinCount=+1;}
 		return winner;
+	}
+	
+	public int HumanWinCount() {
+		return HumanWinCount;}
+
+	public int ComWinCount() {
+		return ComWinCount;}
+	
+	public void chogihwa(){
+		HumanSumCard = 0;
+		humanCount = 0;
+		HumanAce = 0;
+		boolHumanAce = false;
+		HumanList = new String[11];
+		ComHand = null;
+		ComSumCard = 0;
+		ComCount = 0;
+		ComAce = 0;
+		boolComAce = false;
+		ComList= new String[11];
+		HumanTurnEnd = true;
+		ComHand();
+		comhit();
 	}
 
 

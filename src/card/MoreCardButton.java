@@ -7,7 +7,6 @@ import javax.swing.*;
 public class MoreCardButton extends JButton implements ActionListener {
 	private Frame view;
 	private Blackjack model;
-	private boolean firstHit = true;
 
 	public MoreCardButton(String label, Blackjack m, Frame v) {
 		super(label);
@@ -19,9 +18,8 @@ public class MoreCardButton extends JButton implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		//시작할 때 2장 받기
-		if (firstHit) {
-			model.hit();
-			firstHit = false;}
+		if (model.stop()) {
+			model.hit();}
 		
 		model.hit();
 		view.update();

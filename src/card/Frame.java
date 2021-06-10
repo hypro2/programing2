@@ -20,7 +20,7 @@ public class Frame extends JFrame implements ActionListener {
 		JPanel north = new JPanel(new FlowLayout());
 		north.add(label1);
 		JPanel south = new JPanel(new FlowLayout());
-		south.add(new RestartButton("Restart",this));
+		south.add(new RestartButton("Restart",blackjack,this));
 		south.add(new MoreCardButton("Hit!",blackjack,this));
 		south.add(new StopButton("Stand!", blackjack, this)); 
 		south.add(new ExitButton("Exit")); 
