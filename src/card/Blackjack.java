@@ -25,14 +25,10 @@ public class Blackjack {
 	//승자, 인간턴종료 확인
 	private String winner;
 	private boolean HumanTurnEnd;
-	private int HumanWinCount;
-	private int ComWinCount;
 	
 	public Blackjack(int card_num) {
 		ComHand();
 		comhit();
-		HumanWinCount = 0;
-		ComWinCount = 0;
 	}
 	
 	public Card[] ComHand(){
@@ -136,8 +132,7 @@ public class Blackjack {
 			 if ((HumanSumCard == 21 & HumanSumCard != ComSumCard) || 
 				 (HumanSumCard > ComSumCard & HumanSumCard < 21 & ComSumCard < 21) ||
 				 (ComSumCard > 21 & HumanSumCard < 21 && HumanSumCard != 0)) {
-			winner = "인간";
-			HumanWinCount =+1;}
+			winner = "인간";}
 		
 		else if ((ComSumCard == 21  & HumanSumCard != ComSumCard) ||
 				 (ComSumCard > HumanSumCard & HumanSumCard < 21 & ComSumCard < 21)||
@@ -145,16 +140,9 @@ public class Blackjack {
 			winner = "컴퓨터";}
 		
 		else{
-			winner = "무승부";
-			ComWinCount=+1;}
+			winner = "무승부";}
 		return winner;
 	}
-	
-	public int HumanWinCount() {
-		return HumanWinCount;}
-
-	public int ComWinCount() {
-		return ComWinCount;}
 	
 	public void chogihwa(){
 		HumanSumCard = 0;

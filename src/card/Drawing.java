@@ -12,6 +12,8 @@ public class Drawing extends JPanel {
 	private Blackjack blackjack;
 	private String[] HumanList = new String[11];
 	private String[] ComList = new String[11];
+	private int HumanWinCount = 0;
+	private int ComWinCount = 0;
 	
 	public Drawing(Blackjack b) {
 		blackjack = b;
@@ -28,7 +30,8 @@ public class Drawing extends JPanel {
 		g.setColor(Color.red);
 		g.drawString("인간 카드",10,10);
 		HumanList = blackjack.HumanList();
-		
+		g.drawString("인간 승리 :"+HumanWinCount+"회", 150, 10);
+
 		//인간 카드그리기	
 		int x = 0;
 		for (int i = 0; i <blackjack.humanCount() ; i++) {
@@ -77,6 +80,7 @@ public class Drawing extends JPanel {
 		g.setColor(Color.blue);
 		g.drawString("컴퓨터 카드",10,120);
 		ComList = blackjack.ComList();
+		g.drawString("컴퓨터 승리 :"+ComWinCount+"회", 150, 120);
 		g.drawRect(0, 220, 500, 25);
 		
 		//스톱버튼을 누르면 공개되게 해둠
@@ -121,9 +125,11 @@ public class Drawing extends JPanel {
 			//승자 크기, 색상 설정
 		    g.setFont(g.getFont().deriveFont(20.0f));
 		    if (blackjack.winner()=="컴퓨터") {
-		    	g.setColor(Color.blue);}
+		    	g.setColor(Color.blue);
+		    	ComWinCount=ComWinCount+1;}
 		    else if (blackjack.winner()=="인간") {
-		    	g.setColor(Color.red);}
+		    	g.setColor(Color.red);
+		    	HumanWinCount=HumanWinCount+1;}
 		    else {
 		    	g.setColor(Color.orange);}
 		    
