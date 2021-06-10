@@ -82,13 +82,15 @@ public class Drawing extends JPanel {
 		ComList = blackjack.ComList();
 		g.drawString("컴퓨터 승리 :"+ComWinCount+"회", 150, 120);
 		g.drawRect(0, 220, 500, 25);
+		g.drawString(ComList[0], 11, 160);
+		g.drawRect(3, 125, 41, 70);
 		
 		//스톱버튼을 누르면 공개되게 해둠
 		if (!blackjack.stop()) {	
 			
 			//컴퓨터 카드 그리기
-			int y = 0;
-			for (int i = 0; i <blackjack.ComCount() ; i++) {
+			int y = 1;
+			for (int i = 1; i <blackjack.ComCount() ; i++) {
 				g.drawString(ComList[i], y*43+11, 160);
 				g.drawRect(y*43+3, 125, 41, 70);
 				y+=1;
@@ -138,7 +140,7 @@ public class Drawing extends JPanel {
 		
 		//스톱버튼 누르기 전까지 비밀
 		else {
-			g.drawString("인간의 차례가 끝나기를 기다리고 있습니다.../",10,160);}
+			g.drawString("인간의 차례가 끝나기를 기다리고 있습니다.../",50,160);}
 		}
 	}
 

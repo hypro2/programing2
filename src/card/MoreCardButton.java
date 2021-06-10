@@ -16,11 +16,6 @@ public class MoreCardButton extends JButton implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		
-		//시작할 때 2장 받기
-		if (model.stop()) {
-			model.hit();}
-		
 		model.hit();
 		view.update();
 	}

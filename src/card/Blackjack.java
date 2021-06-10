@@ -29,6 +29,8 @@ public class Blackjack {
 	public Blackjack(int card_num) {
 		ComHand();
 		comhit();
+		hit();
+		hit();
 	}
 	
 	public Card[] ComHand(){

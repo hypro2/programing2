@@ -16,6 +16,8 @@ public class RestartButton extends JButton implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		model.chogihwa();
+		model.hit();
+		model.hit();
 		view.update();
 		
 		//프레임을 닫기
